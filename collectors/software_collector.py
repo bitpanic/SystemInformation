@@ -45,11 +45,25 @@ class SoftwareCollector(BaseCollector):
         
         stratus_info = {
             "base_path": r"C:\ProgramData\StratusVision",
+            "overview": {
+                "total_installations": 0,
+                "spin_count": 0,
+                "spindle_count": 0,
+                "total_config_files": 0,
+                "has_hardware_configs": False
+            },
             "installations": [],
-            "total_installations": 0,
             "spin_versions": [],
             "spindle_versions": [],
-            "hardware_configs": []
+            "hardware_configs": [],
+            "system_summary": {
+                "unique_ip_addresses": [],
+                "motor_types_found": [],
+                "scanner_types_found": [],
+                "camera_models_found": [],
+                "total_io_points": 0,
+                "lighting_zones": 0
+            }
         }
         
         stratus_path = r"C:\ProgramData\StratusVision"
@@ -72,37 +86,85 @@ class SoftwareCollector(BaseCollector):
                     
                     if installation_info:
                         stratus_info["installations"].append(installation_info)
-                        stratus_info["total_installations"] += 1
+                        stratus_info["overview"]["total_installations"] += 1
+                        stratus_info["overview"]["total_config_files"] += len(installation_info.get("config_files", []))
                         
-                        # Categorize by software type
+                        # Count by software type
                         if installation_info.get("software_type") == "SPIN":
+                            stratus_info["overview"]["spin_count"] += 1
                             stratus_info["spin_versions"].append({
                                 "version": installation_info.get("version", "Unknown"),
                                 "path": installation_info.get("path"),
-                                "config_file": installation_info.get("config_file")
+                                "config_files_count": len(installation_info.get("config_files", [])),
+                                "hardware_summary": installation_info.get("hardware_summary", {})
                             })
                         elif installation_info.get("software_type") == "SPINDLE":
+                            stratus_info["overview"]["spindle_count"] += 1
                             stratus_info["spindle_versions"].append({
                                 "version": installation_info.get("version", "Unknown"),
                                 "path": installation_info.get("path"),
-                                "config_file": installation_info.get("config_file")
+                                "config_files_count": len(installation_info.get("config_files", [])),
+                                "hardware_summary": installation_info.get("hardware_summary", {})
                             })
                         
                         # Collect hardware configurations
                         if installation_info.get("hardware_config"):
+                            stratus_info["overview"]["has_hardware_configs"] = True
                             stratus_info["hardware_configs"].append({
                                 "software": installation_info.get("software_type"),
                                 "version": installation_info.get("version"),
                                 "config": installation_info.get("hardware_config")
                             })
+                        
+                        # Aggregate system-wide information
+                        self._aggregate_system_info(installation_info, stratus_info["system_summary"])
             
-            self.log_info(f"Found {stratus_info['total_installations']} StratusVision installations")
+            self.log_info(f"Found {stratus_info['overview']['total_installations']} StratusVision installations")
+            self.log_info(f"SPIN installations: {stratus_info['overview']['spin_count']}")
+            self.log_info(f"SPINDLE installations: {stratus_info['overview']['spindle_count']}")
             
         except Exception as e:
             self.log_error(f"Error scanning StratusVision directory: {str(e)}", exc_info=True)
             stratus_info["error"] = str(e)
         
         return stratus_info
+    
+    def _aggregate_system_info(self, installation_info: Dict[str, Any], system_summary: Dict[str, Any]):
+        """Aggregate hardware information across all installations."""
+        try:
+            hardware_summary = installation_info.get("hardware_summary", {})
+            if not hardware_summary:
+                return
+            
+            key_configs = hardware_summary.get("key_configurations", {})
+            
+            # Aggregate IP addresses
+            for ip in key_configs.get("ip_addresses", []):
+                if ip not in system_summary["unique_ip_addresses"]:
+                    system_summary["unique_ip_addresses"].append(ip)
+            
+            # Aggregate motor types
+            for motor_type in key_configs.get("motor_types", []):
+                if motor_type not in system_summary["motor_types_found"]:
+                    system_summary["motor_types_found"].append(motor_type)
+            
+            # Aggregate scanner types
+            for scanner_type in key_configs.get("scanner_types", []):
+                if scanner_type not in system_summary["scanner_types_found"]:
+                    system_summary["scanner_types_found"].append(scanner_type)
+            
+            # Aggregate camera models
+            for camera_model in key_configs.get("camera_models", []):
+                if camera_model not in system_summary["camera_models_found"]:
+                    system_summary["camera_models_found"].append(camera_model)
+            
+            # Count I/O points and lighting zones
+            hardware_overview = hardware_summary.get("hardware_overview", {})
+            system_summary["total_io_points"] += hardware_overview.get("io_points", 0)
+            system_summary["lighting_zones"] += hardware_overview.get("lighting_zones", 0)
+            
+        except Exception as e:
+            self.log_debug(f"Error aggregating system info: {str(e)}")
     
     def _analyze_stratus_installation(self, install_path: str, folder_name: str) -> Dict[str, Any]:
         """Analyze a single Stratus software installation directory."""
