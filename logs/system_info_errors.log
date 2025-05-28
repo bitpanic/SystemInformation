@@ -1,0 +1,277 @@
+2025-05-28 13:19:06 - Demo - ERROR - test_logging_demo.py:28 - demonstrate_logging() - This is an ERROR message - something went wrong
+2025-05-28 13:19:06 - Demo - ERROR - log_config.py:198 - log_collection_error() - Collection failed: Demo Collector - This is a simulated error for demonstration
+Traceback (most recent call last):
+  File "test_logging_demo.py", line 56, in demonstrate_logging
+    raise ValueError("This is a simulated error for demonstration")
+ValueError: This is a simulated error for demonstration
+2025-05-28 13:19:51 - SoftwareCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Software - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 84, in _search_registry_for_spin
+    with winreg.OpenKey(hkey, path) as key:
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 57, in _check_spin_software
+    self._search_registry_for_spin(hkey, path, spin_info)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 96, in _search_registry_for_spin
+    self.logger.debug(f"Registry search error in {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 20, in collect
+    "spin_info": self._check_spin_software(),
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 59, in _check_spin_software
+    self.logger.debug(f"Error accessing registry {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 27, in collect
+    self.logger.error(f"Error collecting software information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - PCICollector - ERROR - pci_collector.py:98 - collect() - Error collecting PCI information: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\pci_collector.py", line 19, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+2025-05-28 13:28:00 - USBCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: USB - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\usb_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\usb_collector.py", line 97, in collect
+    self.logger.error(f"Error collecting USB information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - MemoryCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Memory - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\memory_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\memory_collector.py", line 73, in collect
+    self.logger.error(f"Error collecting memory information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - StorageCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Storage - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\storage_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\storage_collector.py", line 109, in collect
+    self.logger.error(f"Error collecting storage information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - OSCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: OS - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\os_collector.py", line 17, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\os_collector.py", line 103, in collect
+    self.logger.error(f"Error collecting OS information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - SoftwareCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Software - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 84, in _search_registry_for_spin
+    with winreg.OpenKey(hkey, path) as key:
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 57, in _check_spin_software
+    self._search_registry_for_spin(hkey, path, spin_info)
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 96, in _search_registry_for_spin
+    self.logger.debug(f"Registry search error in {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 20, in collect
+    "spin_info": self._check_spin_software(),
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 59, in _check_spin_software
+    self.logger.debug(f"Error accessing registry {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 27, in collect
+    self.logger.error(f"Error collecting software information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - SystemCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: System - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\system_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\system_collector.py", line 27, in collect
+    self.logger.error(f"Error collecting system information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'

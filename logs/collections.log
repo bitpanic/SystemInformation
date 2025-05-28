@@ -1,0 +1,666 @@
+2025-05-28 13:19:06 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:19:06 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:19:06 - Demo - INFO - log_config.py:187 - log_collection_start() - Starting collection: Demo Collector
+2025-05-28 13:19:06 - Demo - INFO - log_config.py:192 - log_collection_success() - Collection completed successfully: Demo Collector - 42 items collected
+2025-05-28 13:19:06 - Demo - INFO - log_config.py:203 - log_export_operation() - Export successful: JSON -> demo_file.json
+2025-05-28 13:19:06 - Demo - INFO - log_config.py:203 - log_export_operation() - Export successful: CSV -> demo_file.csv
+2025-05-28 13:19:06 - Demo - ERROR - log_config.py:198 - log_collection_error() - Collection failed: Demo Collector - This is a simulated error for demonstration
+Traceback (most recent call last):
+  File "test_logging_demo.py", line 56, in demonstrate_logging
+    raise ValueError("This is a simulated error for demonstration")
+ValueError: This is a simulated error for demonstration
+2025-05-28 13:19:13 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:19:13 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:19:47 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:19:47 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:19:47 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:19:47 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:19:47 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:19:47 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:19:47 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:19:47 - PCICollector - INFO - base_collector.py:101 - log_info() - Starting PCI device collection
+2025-05-28 13:19:49 - PCICollector - INFO - base_collector.py:101 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 13:19:49 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.31 seconds
+2025-05-28 13:19:49 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 13:19:49 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 13:19:49 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:19:49 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:19:50 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.27 seconds
+2025-05-28 13:19:50 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 13:19:50 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 13:19:50 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:19:50 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:19:50 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 13:19:50 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 13:19:50 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 13:19:50 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:19:50 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:19:51 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.79 seconds
+2025-05-28 13:19:51 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 13:19:51 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 13:19:51 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:19:51 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:19:51 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.14 seconds
+2025-05-28 13:19:51 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 13:19:51 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 13:19:51 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:19:51 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:19:51 - SoftwareCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Software - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 84, in _search_registry_for_spin
+    with winreg.OpenKey(hkey, path) as key:
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 57, in _check_spin_software
+    self._search_registry_for_spin(hkey, path, spin_info)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 96, in _search_registry_for_spin
+    self.logger.debug(f"Registry search error in {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 20, in collect
+    "spin_info": self._check_spin_software(),
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 59, in _check_spin_software
+    self.logger.debug(f"Error accessing registry {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 27, in collect
+    self.logger.error(f"Error collecting software information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:19:51 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for software: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:19:51 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:19:51 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:19:53 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.28 seconds
+2025-05-28 13:19:53 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 13:19:53 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 13:19:53 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 5.84 seconds
+2025-05-28 13:19:53 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 6, Failed: 1
+2025-05-28 13:19:53 - CLI - INFO - log_config.py:187 - log_info() - Collection completed - Success: 6/7, Duration: 5.84s
+2025-05-28 13:19:53 - CLI - WARNING - cli_app.py:93 - main() - Some collections failed: 1/7
+2025-05-28 13:19:53 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting JSON export to test_output.json
+2025-05-28 13:19:53 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: JSON -> test_output.json
+2025-05-28 13:19:53 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - JSON export (43270 bytes): 0.00 seconds
+2025-05-28 13:19:53 - CLI - INFO - log_config.py:229 - log_performance() - Performance - CLI JSON export (43,270 bytes): 0.00 seconds
+2025-05-28 13:27:58 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:27:58 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:27:58 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:28:00 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 13:28:00 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:28:00 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:28:00 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 13:28:00 - PCICollector - ERROR - pci_collector.py:98 - collect() - Error collecting PCI information: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\pci_collector.py", line 19, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+2025-05-28 13:28:00 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 0.00 seconds
+2025-05-28 13:28:00 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 0 items collected
+2025-05-28 13:28:00 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for pci: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:28:00 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:28:00 - USBCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: USB - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\usb_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\usb_collector.py", line 97, in collect
+    self.logger.error(f"Error collecting USB information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for usb: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:28:00 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:28:00 - MemoryCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Memory - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\memory_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\memory_collector.py", line 73, in collect
+    self.logger.error(f"Error collecting memory information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for memory: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:28:00 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:28:00 - StorageCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Storage - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\storage_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\storage_collector.py", line 109, in collect
+    self.logger.error(f"Error collecting storage information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for storage: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:28:00 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:28:00 - OSCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: OS - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\os_collector.py", line 17, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\os_collector.py", line 103, in collect
+    self.logger.error(f"Error collecting OS information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for operating_system: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:28:00 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:28:00 - SoftwareCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: Software - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 84, in _search_registry_for_spin
+    with winreg.OpenKey(hkey, path) as key:
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 57, in _check_spin_software
+    self._search_registry_for_spin(hkey, path, spin_info)
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 96, in _search_registry_for_spin
+    self.logger.debug(f"Registry search error in {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 20, in collect
+    "spin_info": self._check_spin_software(),
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 59, in _check_spin_software
+    self.logger.debug(f"Error accessing registry {path}: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'debug'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 27, in collect
+    self.logger.error(f"Error collecting software information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for software: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:28:00 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:28:00 - SystemCollector - ERROR - log_config.py:214 - log_collection_error() - Collection failed: System - 'SystemInfoLogger' object has no attribute 'error'
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1340, in connect
+    obj = GetObject(moniker)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 86, in GetObject
+    return Moniker(Pathname, clsctx)
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\__init__.py", line 103, in Moniker
+    moniker, i, bindCtx = pythoncom.MkParseDisplayName(Pathname)
+pywintypes.com_error: (-2147221020, 'Invalid syntax', None, None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1354, in connect
+    handle_com_error()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi_uninitialised_thread: <x_wmi: Unexpected COM Error (-2147221020, 'Invalid syntax', None, None)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\system_collector.py", line 15, in collect
+    c = wmi.WMI()
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1357, in connect
+    raise x_wmi_uninitialised_thread("WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex]")
+wmi.x_wmi_uninitialised_thread: <x_wmi: WMI returned a syntax error: you're probably running inside a thread without first calling pythoncom.CoInitialize[Ex] (no underlying exception)>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\base_collector.py", line 32, in safe_collect
+    result = self.collect()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\system_collector.py", line 27, in collect
+    self.logger.error(f"Error collecting system information: {str(e)}")
+AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - WARNING - system_info_manager.py:67 - collect_all_info() - Collection failed for system: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 0.01 seconds
+2025-05-28 13:28:00 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 0, Failed: 7
+2025-05-28 13:28:00 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 0.01 seconds
+2025-05-28 13:28:00 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 0, Failed: 7, Duration: 0.009s
+2025-05-28 13:28:21 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:28:21 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:28:21 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:30:30 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:30:30 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:30:30 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:30:30 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:30:30 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:30:30 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:30:30 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:30:30 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 13:30:31 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 13:30:31 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.36 seconds
+2025-05-28 13:30:31 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 13:30:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 13:30:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:30:31 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:30:33 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.30 seconds
+2025-05-28 13:30:33 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 13:30:33 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 13:30:33 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:30:33 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:30:33 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 13:30:33 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 13:30:33 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 13:30:33 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:30:33 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:30:33 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.82 seconds
+2025-05-28 13:30:33 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 13:30:33 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 13:30:33 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:30:33 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:30:34 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.15 seconds
+2025-05-28 13:30:34 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 13:30:34 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 13:30:34 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:30:34 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:30:36 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 2.89 seconds
+2025-05-28 13:30:36 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 13:30:36 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 13:30:36 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:30:36 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:30:39 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.29 seconds
+2025-05-28 13:30:39 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 13:30:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 13:30:39 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 8.85 seconds
+2025-05-28 13:30:39 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 13:30:39 - CLI - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7/7, Duration: 8.85s
+2025-05-28 13:30:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting JSON export to test_fixed.json
+2025-05-28 13:30:39 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: JSON -> test_fixed.json
+2025-05-28 13:30:39 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - JSON export (43444 bytes): 0.00 seconds
+2025-05-28 13:30:39 - CLI - INFO - log_config.py:229 - log_performance() - Performance - CLI JSON export (43,444 bytes): 0.00 seconds
+2025-05-28 13:35:15 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:35:15 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:35:15 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:35:17 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 13:35:17 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 13:35:17 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:35:17 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:35:17 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:35:17 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 13:35:18 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 13:35:18 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.27 seconds
+2025-05-28 13:35:18 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 13:35:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 13:35:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:35:18 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:35:20 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.25 seconds
+2025-05-28 13:35:20 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 13:35:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 13:35:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:35:20 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:35:20 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 13:35:20 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 13:35:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 13:35:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:35:20 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:35:20 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.74 seconds
+2025-05-28 13:35:20 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 13:35:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 13:35:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:35:20 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:35:21 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.09 seconds
+2025-05-28 13:35:21 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 13:35:21 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 13:35:21 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:35:21 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:35:23 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 2.29 seconds
+2025-05-28 13:35:23 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 13:35:23 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 13:35:23 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:35:23 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:35:25 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.19 seconds
+2025-05-28 13:35:25 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 13:35:25 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 13:35:25 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 7.88 seconds
+2025-05-28 13:35:25 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 13:35:25 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 7.88 seconds
+2025-05-28 13:35:25 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 7.883s
+2025-05-28 13:43:15 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:43:15 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:43:15 - CLI - INFO - log_config.py:187 - log_info() - CLI Application started with args: {'json': 'test_enhanced_software.json', 'csv': None, 'log_level': 'INFO', 'no_console_log': False, 'no_file_log': False, 'quick': False, 'verbose': True}
+2025-05-28 13:43:15 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:43:15 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:43:15 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:43:15 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:43:15 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:43:15 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 13:43:17 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 13:43:17 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.31 seconds
+2025-05-28 13:43:17 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 13:43:17 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 13:43:17 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:43:17 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:43:18 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.27 seconds
+2025-05-28 13:43:18 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 13:43:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 13:43:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:43:18 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:43:18 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 13:43:18 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 13:43:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 13:43:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:43:18 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:43:19 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.77 seconds
+2025-05-28 13:43:19 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 13:43:19 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 13:43:19 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:43:19 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:43:19 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.09 seconds
+2025-05-28 13:43:19 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 13:43:19 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 13:43:19 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:43:19 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:43:19 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\Stratus
+2025-05-28 13:43:24 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.07 seconds
+2025-05-28 13:43:24 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 13:43:24 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 13:43:24 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:43:24 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:43:26 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.18 seconds
+2025-05-28 13:43:26 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 13:43:26 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 13:43:26 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.74 seconds
+2025-05-28 13:43:26 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 13:43:26 - CLI - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7/7, Duration: 10.74s
+2025-05-28 13:43:26 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting JSON export to test_enhanced_software.json
+2025-05-28 13:43:26 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: JSON -> test_enhanced_software.json
+2025-05-28 13:43:26 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - JSON export (43884 bytes): 0.00 seconds
+2025-05-28 13:43:26 - CLI - INFO - log_config.py:229 - log_performance() - Performance - CLI JSON export (43,884 bytes): 0.00 seconds
+2025-05-28 13:43:26 - CLI - INFO - log_config.py:187 - log_info() - CLI operation completed successfully. Files: ['test_enhanced_software.json']
+2025-05-28 13:45:52 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:45:52 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:45:52 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:45:54 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 13:45:54 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 13:45:54 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:45:54 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:45:54 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:45:54 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 13:45:55 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 13:45:55 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.30 seconds
+2025-05-28 13:45:55 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 13:45:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 13:45:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:45:55 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:45:57 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.25 seconds
+2025-05-28 13:45:57 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:45:57 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:45:57 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 13:45:57 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:45:57 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:45:57 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.76 seconds
+2025-05-28 13:45:57 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:45:57 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:45:57 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.10 seconds
+2025-05-28 13:45:57 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 13:45:57 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:45:57 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:45:57 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\Stratus
+2025-05-28 13:46:03 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.08 seconds
+2025-05-28 13:46:03 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 13:46:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 13:46:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:46:03 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:46:05 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.18 seconds
+2025-05-28 13:46:05 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 13:46:05 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 13:46:05 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.72 seconds
+2025-05-28 13:46:05 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 13:46:05 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 10.72 seconds
+2025-05-28 13:46:05 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 10.717s
+2025-05-28 13:48:20 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:48:20 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:48:20 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:48:20 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:48:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:48:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:48:20 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:48:20 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 13:48:21 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 13:48:21 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.28 seconds
+2025-05-28 13:48:21 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 13:48:21 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 13:48:21 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:48:21 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:48:22 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.28 seconds
+2025-05-28 13:48:22 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 13:48:22 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 13:48:22 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:48:22 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:48:22 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 13:48:22 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 13:48:22 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 13:48:22 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:48:22 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:48:23 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.77 seconds
+2025-05-28 13:48:23 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 13:48:23 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 13:48:23 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:48:23 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:48:23 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.12 seconds
+2025-05-28 13:48:23 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 13:48:23 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 13:48:23 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:48:23 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:48:23 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 13:48:28 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.04 seconds
+2025-05-28 13:48:28 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 13:48:28 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 13:48:28 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:48:28 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:48:31 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.18 seconds
+2025-05-28 13:48:31 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 13:48:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 13:48:31 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.71 seconds
+2025-05-28 13:48:31 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 13:48:31 - CLI - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7/7, Duration: 10.71s
+2025-05-28 13:48:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting JSON export to test_stratusvision_report.json
+2025-05-28 13:48:31 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: JSON -> test_stratusvision_report.json
+2025-05-28 13:48:31 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - JSON export (45987 bytes): 0.00 seconds
+2025-05-28 13:48:31 - CLI - INFO - log_config.py:229 - log_performance() - Performance - CLI JSON export (45,987 bytes): 0.00 seconds
+2025-05-28 13:58:57 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:58:57 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:58:57 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:59:00 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 13:59:00 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 13:59:00 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 13:59:10 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 13:59:10 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 13:59:10 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 13:59:10 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 13:59:10 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 13:59:10 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 13:59:11 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 13:59:11 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.29 seconds
+2025-05-28 13:59:11 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 13:59:11 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 13:59:11 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 13:59:11 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 13:59:12 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.24 seconds
+2025-05-28 13:59:12 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 13:59:12 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 13:59:12 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 13:59:12 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 13:59:12 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 13:59:12 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 13:59:12 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 13:59:12 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 13:59:12 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 13:59:13 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.75 seconds
+2025-05-28 13:59:13 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 13:59:13 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 13:59:13 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 13:59:13 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 13:59:13 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.10 seconds
+2025-05-28 13:59:13 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 13:59:13 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 13:59:13 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 13:59:13 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 13:59:13 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 13:59:18 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 4.99 seconds
+2025-05-28 13:59:18 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 13:59:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 13:59:18 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 13:59:18 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 13:59:20 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.20 seconds
+2025-05-28 13:59:20 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 13:59:20 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 13:59:20 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.61 seconds
+2025-05-28 13:59:20 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 13:59:20 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 10.61 seconds
+2025-05-28 13:59:20 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 10.605s
