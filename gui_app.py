@@ -129,6 +129,7 @@ class SystemInfoGUI:
             ("Storage", "storage"),
             ("Operating System", "operating_system"),
             ("Software", "software"),
+            ("CodeMeter Dongles", "dongles"),
             ("System Info", "system"),
             ("Logs", "logs")  # New logs tab
         ]
@@ -426,6 +427,11 @@ class SystemInfoGUI:
         for category in categories:
             if category in self.system_info and category in self.tabs:
                 self.update_tab_content(category, self.system_info[category])
+        
+        # Update dongles tab separately
+        if 'dongles' in self.tabs:
+            dongle_data = self.manager.get_dongle_info()
+            self.update_tab_content('dongles', dongle_data)
     
     def update_overview_tab(self):
         """Update the overview tab with summary information."""
@@ -459,6 +465,26 @@ Collection Status: {summary.get('collection_status', 'Unknown')}
             overview_text += f"License: {spin_info.get('license_number', 'Not found')}\n"
             overview_text += f"Install Path: {spin_info.get('install_path', 'Not found')}\n"
         
+        # Add CodeMeter dongle status
+        dongle_data = self.manager.get_dongle_info()
+        overview_text += f"\n=== CODEMETER DONGLES ===\n"
+        if 'error' in dongle_data:
+            overview_text += f"Status: {dongle_data['error']}\n"
+        else:
+            total_dongles = dongle_data.get('total_dongles', 0)
+            overview_text += f"Total Dongles Found: {total_dongles}\n"
+            overview_text += f"CodeMeter Service: {'Running' if dongle_data.get('codemeter_service_running') else 'Not Running'}\n"
+            overview_text += f"CodeMeter Installed: {'Yes' if dongle_data.get('codemeter_installed') else 'No'}\n"
+            
+            if total_dongles > 0:
+                overview_text += f"\nDongle Details:\n"
+                for i, dongle in enumerate(dongle_data.get('dongles', []), 1):
+                    overview_text += f"  {i}. {dongle.get('device_name', 'Unknown')} - Serial: {dongle.get('serial_number', 'Unknown')}\n"
+                    if dongle.get('version'):
+                        overview_text += f"     Version: {dongle.get('version')}\n"
+                    if dongle.get('status'):
+                        overview_text += f"     Status: {dongle.get('status')}\n"
+        
         text_widget.insert(tk.END, overview_text)
         text_widget.config(state='disabled')
     
@@ -471,8 +497,17 @@ Collection Status: {summary.get('collection_status', 'Unknown')}
         text_widget.config(state='normal')
         text_widget.delete(1.0, tk.END)
         
-        # Format and display the data
-        formatted_data = json.dumps(data, indent=2, ensure_ascii=False)
+        # For software tab, exclude dongle data to avoid duplication
+        if category == 'software' and isinstance(data, dict):
+            filtered_data = data.copy()
+            # Remove dongle data from software display
+            filtered_data.pop('codemeter_dongles', None)
+            filtered_data.pop('_separate_dongles', None)
+            formatted_data = json.dumps(filtered_data, indent=2, ensure_ascii=False)
+        else:
+            # Format and display the data
+            formatted_data = json.dumps(data, indent=2, ensure_ascii=False)
+        
         text_widget.insert(tk.END, formatted_data)
         text_widget.config(state='disabled')
     

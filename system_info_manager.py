@@ -286,4 +286,22 @@ class SystemInfoManager:
             if gpu_count > 0:
                 summary["summary"]["primary_gpu"] = self.system_info["system"]["gpu_info"][0].get("name", "Unknown")
         
-        return summary 
+        return summary
+    
+    def get_dongle_info(self) -> Dict[str, Any]:
+        """Get CodeMeter dongle information separately from software data."""
+        if not self.system_info:
+            return {"error": "No data collected yet"}
+        
+        # Try to get dongle data from software collection
+        software_data = self.system_info.get("software", {})
+        
+        # Check for separate dongles data first
+        if "_separate_dongles" in software_data:
+            return software_data["_separate_dongles"]
+        
+        # Fallback to codemeter_dongles in software data
+        if "codemeter_dongles" in software_data:
+            return software_data["codemeter_dongles"]
+        
+        return {"error": "No dongle information available"} 

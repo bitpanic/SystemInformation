@@ -19,13 +19,21 @@ class SoftwareCollector(BaseCollector):
     def collect(self) -> Dict[str, Any]:
         """Collect software information with focus on SPIN/SPINDLE software and CodeMeter dongles."""
         try:
+            # Collect dongle information separately
+            codemeter_dongles = self._check_codemeter_dongles()
+            
             result = {
                 "stratusvision_software": self._check_stratus_software(),
-                "codemeter_dongles": self._check_codemeter_dongles(),
+                "codemeter_dongles": codemeter_dongles,
                 "spin_info": self._check_spin_software(),  # Keep legacy check
                 "installed_programs": self._get_installed_programs(),
                 "status": "success"
             }
+            
+            # Also store dongles separately for easy access by GUI
+            # This allows the GUI to get dongles independently
+            result["_separate_dongles"] = codemeter_dongles
+            
             return result
             
         except Exception as e:
@@ -36,7 +44,8 @@ class SoftwareCollector(BaseCollector):
                 "spin_info": {"installed": False, "error": str(e)},
                 "installed_programs": [],
                 "error": str(e),
-                "status": "failed"
+                "status": "failed",
+                "_separate_dongles": {"error": str(e)}
             }
     
     def _check_stratus_software(self) -> Dict[str, Any]:
@@ -577,7 +586,13 @@ class SoftwareCollector(BaseCollector):
             "dongles": [],
             "total_dongles": 0,
             "codemeter_service_running": False,
-            "codemeter_installed": False
+            "codemeter_installed": False,
+            "detection_methods": {
+                "wmi_pnp_devices": 0,
+                "wmi_usb_devices": 0,
+                "cli_detection": 0,
+                "registry_detection": 0
+            }
         }
         
         try:
@@ -592,36 +607,71 @@ class SoftwareCollector(BaseCollector):
                     self.log_info(f"Found CodeMeter service: {service.Name}, State: {service.State}")
                     break
             
-            # Check for CodeMeter USB devices
-            for device in c.Win32_PnPEntity():
-                if device.DeviceID and ("codemeter" in device.DeviceID.lower() or 
-                                      "wibu" in device.DeviceID.lower()):
-                    dongle_info = {
-                        "device_name": device.Name or "Unknown",
-                        "device_id": device.DeviceID or "Unknown",
-                        "manufacturer": device.Manufacturer or "Unknown",
-                        "status": device.Status or "Unknown",
-                        "serial_number": "Unknown"
-                    }
-                    
-                    # Try to extract serial number from device ID
+            # Enhanced PnP device detection (this usually works)
+            try:
+                self.log_debug("Scanning PnP devices for CodeMeter dongles...")
+                for device in c.Win32_PnPEntity():
                     if device.DeviceID:
-                        import re
-                        # Look for serial number patterns in device ID
-                        serial_match = re.search(r'\\([A-Z0-9]+)$', device.DeviceID)
-                        if serial_match:
-                            dongle_info["serial_number"] = serial_match.group(1)
-                    
-                    codemeter_info["dongles"].append(dongle_info)
-                    self.log_info(f"Found CodeMeter dongle: {dongle_info['device_name']}")
+                        device_id_lower = device.DeviceID.lower()
+                        device_name_lower = (device.Name or "").lower()
+                        
+                        # Expanded search patterns
+                        codemeter_patterns = [
+                            "codemeter", "wibu", "halcon", "mvtec", 
+                            "protection", "dongle", "usb\\vid_064b",  # WIBU vendor ID
+                            "usb\\vid_1a86"  # Another common dongle vendor
+                        ]
+                        
+                        if any(pattern in device_id_lower or pattern in device_name_lower 
+                               for pattern in codemeter_patterns):
+                            
+                            dongle_info = {
+                                "device_name": device.Name or "Unknown",
+                                "device_id": device.DeviceID or "Unknown",
+                                "manufacturer": device.Manufacturer or "Unknown",
+                                "status": device.Status or "Unknown",
+                                "serial_number": "Unknown",
+                                "source": "WMI PnP"
+                            }
+                            
+                            # Enhanced serial number extraction
+                            if device.DeviceID:
+                                serial_number = self._extract_serial_from_device_id(device.DeviceID)
+                                if serial_number:
+                                    dongle_info["serial_number"] = serial_number
+                            
+                            codemeter_info["dongles"].append(dongle_info)
+                            codemeter_info["detection_methods"]["wmi_pnp_devices"] += 1
+                            self.log_info(f"Found CodeMeter dongle (PnP): {dongle_info['device_name']}")
+            except Exception as e:
+                self.log_debug(f"Error in PnP device scanning: {str(e)}")
+            
+            # Skip USB device detection as it's causing COM errors
+            # Enhanced USB device detection
+            # self.log_debug("Skipping USB device scanning due to COM errors")
             
             # Try to get more detailed info from CodeMeter registry
-            self._check_codemeter_registry(codemeter_info)
+            try:
+                registry_dongles = self._check_codemeter_registry(codemeter_info)
+                codemeter_info["detection_methods"]["registry_detection"] = registry_dongles
+            except Exception as e:
+                self.log_debug(f"Error in registry detection: {str(e)}")
             
-            # Try to run CodeMeter command line tool if available
-            self._check_codemeter_cli(codemeter_info)
+            # Try to run CodeMeter command line tool if available (this is most reliable)
+            try:
+                cli_dongles_before = len(codemeter_info["dongles"])
+                self._check_codemeter_cli(codemeter_info)
+                codemeter_info["detection_methods"]["cli_detection"] = len(codemeter_info["dongles"]) - cli_dongles_before
+            except Exception as e:
+                self.log_error(f"Error in CLI detection: {str(e)}")
             
             codemeter_info["total_dongles"] = len(codemeter_info["dongles"])
+            
+            # Log summary
+            self.log_info(f"CodeMeter detection summary: {codemeter_info['total_dongles']} dongles found")
+            for method, count in codemeter_info["detection_methods"].items():
+                if count > 0:
+                    self.log_info(f"  {method}: {count} dongles")
             
         except Exception as e:
             self.log_error(f"Error checking CodeMeter dongles: {str(e)}", exc_info=True)
@@ -629,14 +679,44 @@ class SoftwareCollector(BaseCollector):
         
         return codemeter_info
     
-    def _check_codemeter_registry(self, codemeter_info: Dict[str, Any]):
+    def _extract_serial_from_device_id(self, device_id: str) -> str:
+        """Extract serial number from device ID with improved patterns."""
+        if not device_id:
+            return None
+            
+        import re
+        
+        # Multiple patterns for serial number extraction
+        serial_patterns = [
+            r'\\([A-Z0-9]+-[A-Z0-9]+)$',  # Pattern like "3-6903986"
+            r'\\([A-Z0-9]{6,})$',         # Long alphanumeric strings
+            r'&([A-Z0-9]+-[A-Z0-9]+)&',   # Pattern with & delimiters
+            r'\\([0-9]+-[0-9]+)',         # Numeric pattern like "3-6903986"
+            r'SER_([A-Z0-9\-]+)',         # Serial prefix pattern
+            r'\\([A-F0-9]{8}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{4}-[A-F0-9]{12})',  # GUID pattern
+        ]
+        
+        for pattern in serial_patterns:
+            match = re.search(pattern, device_id, re.IGNORECASE)
+            if match:
+                serial = match.group(1)
+                # Validate serial number (should have minimum length and reasonable characters)
+                if len(serial) >= 4 and not serial.startswith('0000'):
+                    return serial
+        
+        return None
+    
+    def _check_codemeter_registry(self, codemeter_info: Dict[str, Any]) -> int:
         """Check CodeMeter registry entries for additional information."""
+        dongles_found = 0
         try:
             registry_paths = [
                 (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WIBU-SYSTEMS"),
                 (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WOW6432Node\WIBU-SYSTEMS"),
                 (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\CodeMeter"),
-                (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WOW6432Node\CodeMeter")
+                (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WOW6432Node\CodeMeter"),
+                (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WIBU-SYSTEMS\CodeMeter\Server"),
+                (winreg.HKEY_LOCAL_MACHINE, r"SOFTWARE\WOW6432Node\WIBU-SYSTEMS\CodeMeter\Server")
             ]
             
             for hkey, path in registry_paths:
@@ -645,12 +725,28 @@ class SoftwareCollector(BaseCollector):
                         codemeter_info["codemeter_installed"] = True
                         self.log_debug(f"Found CodeMeter registry entry: {path}")
                         
-                        # Try to enumerate subkeys for more info
+                        # Try to enumerate subkeys for dongle information
                         i = 0
                         while True:
                             try:
                                 subkey_name = winreg.EnumKey(key, i)
                                 self.log_debug(f"CodeMeter registry subkey: {subkey_name}")
+                                
+                                # Look for serial number patterns in subkey names
+                                if '-' in subkey_name and any(c.isdigit() for c in subkey_name):
+                                    # This might be a dongle serial
+                                    if not any(subkey_name in dongle.get("serial_number", "") 
+                                             for dongle in codemeter_info["dongles"]):
+                                        dongle_info = {
+                                            "device_name": "CodeMeter Dongle (Registry)",
+                                            "serial_number": subkey_name,
+                                            "source": "Registry",
+                                            "registry_path": f"{path}\\{subkey_name}"
+                                        }
+                                        codemeter_info["dongles"].append(dongle_info)
+                                        dongles_found += 1
+                                        self.log_info(f"Found dongle in registry: {subkey_name}")
+                                
                                 i += 1
                             except WindowsError:
                                 break
@@ -662,6 +758,8 @@ class SoftwareCollector(BaseCollector):
                     
         except Exception as e:
             self.log_debug(f"Error checking CodeMeter registry: {str(e)}")
+        
+        return dongles_found
     
     def _check_codemeter_cli(self, codemeter_info: Dict[str, Any]):
         """Try to get dongle information using CodeMeter command line tools."""
@@ -680,14 +778,77 @@ class SoftwareCollector(BaseCollector):
                 if os.path.exists(cli_path):
                     self.log_info(f"Found CodeMeter CLI: {cli_path}")
                     try:
-                        # Try to list dongles
-                        result = subprocess.run([cli_path, "--list-dongles"], 
-                                              capture_output=True, text=True, timeout=10)
-                        if result.returncode == 0 and result.stdout:
-                            self._parse_codemeter_cli_output(result.stdout, codemeter_info)
+                        # Try multiple commands to list dongles
+                        commands_to_try = [
+                            [cli_path, "--list"],
+                            [cli_path, "-l"],
+                            [cli_path, "--list-dongles"],
+                            [cli_path, "--cmdline", "--list-dongles"],
+                            [cli_path, "--enum-dongles"],
+                            [cli_path, "--info"]
+                        ]
+                        
+                        for cmd in commands_to_try:
+                            try:
+                                self.log_debug(f"Trying CodeMeter command: {' '.join(cmd)}")
+                                
+                                # Use shell=True for Windows to handle the command properly
+                                cmd_str = ' '.join(f'"{arg}"' if ' ' in arg else arg for arg in cmd)
+                                result = subprocess.run(
+                                    cmd_str,
+                                    capture_output=True, 
+                                    text=True, 
+                                    timeout=15,
+                                    shell=True,
+                                    creationflags=subprocess.CREATE_NO_WINDOW if hasattr(subprocess, 'CREATE_NO_WINDOW') else 0
+                                )
+                                
+                                self.log_debug(f"Command result - Return code: {result.returncode}")
+                                if result.stdout:
+                                    self.log_debug(f"CodeMeter CLI output: {result.stdout[:500]}")
+                                if result.stderr:
+                                    self.log_debug(f"CodeMeter CLI stderr: {result.stderr[:200]}")
+                                
+                                if result.returncode == 0 and result.stdout:
+                                    dongles_before = len(codemeter_info["dongles"])
+                                    self._parse_codemeter_cli_output(result.stdout, codemeter_info)
+                                    dongles_found = len(codemeter_info["dongles"]) - dongles_before
+                                    
+                                    if dongles_found > 0:
+                                        self.log_info(f"CLI command '{' '.join(cmd)}' found {dongles_found} dongles")
+                                        break  # Stop trying other commands if we found dongles
+                                    else:
+                                        self.log_debug(f"CLI command '{' '.join(cmd)}' found no dongles")
+                                else:
+                                    self.log_debug(f"CLI command failed: return code {result.returncode}")
+                                    
+                            except subprocess.TimeoutExpired:
+                                self.log_debug(f"CodeMeter CLI command timed out: {' '.join(cmd)}")
+                            except FileNotFoundError:
+                                self.log_debug(f"CodeMeter CLI not found: {cli_path}")
+                            except Exception as e:
+                                self.log_debug(f"Error running CodeMeter CLI {' '.join(cmd)}: {str(e)}")
+                        
+                        # Try to get more detailed info if we found dongles
+                        if codemeter_info["dongles"]:
+                            try:
+                                detail_cmd = f'"{cli_path}" --cmdline --detailed-info'
+                                result = subprocess.run(
+                                    detail_cmd, 
+                                    capture_output=True, 
+                                    text=True, 
+                                    timeout=15,
+                                    shell=True,
+                                    creationflags=subprocess.CREATE_NO_WINDOW if hasattr(subprocess, 'CREATE_NO_WINDOW') else 0
+                                )
+                                if result.returncode == 0 and result.stdout:
+                                    self._parse_detailed_codemeter_info(result.stdout, codemeter_info)
+                            except Exception as e:
+                                self.log_debug(f"Error getting detailed CodeMeter info: {str(e)}")
+                        
                     except Exception as e:
-                        self.log_debug(f"Error running CodeMeter CLI: {str(e)}")
-                    break
+                        self.log_debug(f"Error with CodeMeter CLI {cli_path}: {str(e)}")
+                    break  # Stop after trying the first found CLI
                     
         except Exception as e:
             self.log_debug(f"Error checking CodeMeter CLI: {str(e)}")
@@ -696,29 +857,172 @@ class SoftwareCollector(BaseCollector):
         """Parse CodeMeter CLI output for dongle information."""
         try:
             lines = output.split('\n')
+            
             for line in lines:
-                if "dongle" in line.lower() or "serial" in line.lower():
-                    # Extract serial number from CLI output
+                line = line.strip()
+                if not line:
+                    continue
+                
+                self.log_debug(f"Parsing CLI line: {line}")
+                
+                # Look for the specific CodeMeter format: "CmContainer with Serial Number X-XXXXXX"
+                if "cmcontainer" in line.lower() and "serial number" in line.lower():
                     import re
-                    serial_match = re.search(r'(\d+)', line)
+                    
+                    # Extract serial number from format like "CmContainer with Serial Number 3-6903986"
+                    serial_match = re.search(r'serial number\s+(\d+-\d+)', line, re.IGNORECASE)
                     if serial_match:
+                        serial_number = serial_match.group(1)
+                        
+                        # Extract version if present
+                        version_match = re.search(r'version\s+([0-9.]+)', line, re.IGNORECASE)
+                        version = version_match.group(1) if version_match else "Unknown"
+                        
+                        # Extract status (enabled/disabled)
+                        status = "Unknown"
+                        if "enabled" in line.lower():
+                            status = "Enabled"
+                        elif "disabled" in line.lower():
+                            status = "Disabled"
+                        
                         # Check if we already have this dongle
-                        serial = serial_match.group(1)
                         found = False
-                        for dongle in codemeter_info["dongles"]:
-                            if serial in dongle.get("serial_number", ""):
+                        for existing_dongle in codemeter_info["dongles"]:
+                            if serial_number in existing_dongle.get("serial_number", ""):
                                 found = True
+                                # Update existing dongle with more info
+                                existing_dongle["version"] = version
+                                existing_dongle["status"] = status
+                                existing_dongle["source"] = "CLI (Enhanced)"
                                 break
                         
                         if not found:
-                            codemeter_info["dongles"].append({
-                                "device_name": "CodeMeter Dongle (CLI)",
-                                "serial_number": serial,
-                                "source": "CLI"
-                            })
+                            dongle_info = {
+                                "device_name": "CodeMeter CmContainer",
+                                "serial_number": serial_number,
+                                "version": version,
+                                "status": status,
+                                "source": "CLI",
+                                "raw_info": line
+                            }
                             
+                            codemeter_info["dongles"].append(dongle_info)
+                            self.log_info(f"Found CodeMeter dongle via CLI: Serial {serial_number}, Version {version}, Status {status}")
+                
+                # Also look for other dongle-related patterns
+                elif any(keyword in line.lower() for keyword in ['dongle', 'stick', 'halcon', 'mvtec']):
+                    # Extract serial number patterns
+                    import re
+                    
+                    # Pattern for serial numbers like "3-6903986"
+                    serial_patterns = [
+                        r'(\d+-\d+)',  # Pattern like "3-6903986"
+                        r'Serial[:\s]*(\d+[-\d]*)',  # "Serial: 3-6903986"
+                        r'HALCON[:\s]*(\d+[-\d]*)',  # "HALCON 3-6903986"
+                        r'MVTec[:\s]*(\d+[-\d]*)'  # "MVTec 3-6903986"
+                    ]
+                    
+                    for pattern in serial_patterns:
+                        matches = re.findall(pattern, line, re.IGNORECASE)
+                        for match in matches:
+                            if match and len(match) >= 4 and match != "2007-2025":  # Exclude copyright years
+                                # Check if we already have this dongle
+                                found = False
+                                for existing_dongle in codemeter_info["dongles"]:
+                                    if match in existing_dongle.get("serial_number", ""):
+                                        found = True
+                                        break
+                                
+                                if not found:
+                                    dongle_info = {
+                                        "device_name": self._extract_dongle_name(line),
+                                        "serial_number": match,
+                                        "source": "CLI",
+                                        "raw_info": line
+                                    }
+                                    
+                                    # Look for additional info in the line
+                                    if "halcon" in line.lower():
+                                        dongle_info["device_name"] = "MVTec HALCON"
+                                        dongle_info["manufacturer"] = "MVTec"
+                                    elif "mvtec" in line.lower():
+                                        dongle_info["manufacturer"] = "MVTec"
+                                    
+                                    codemeter_info["dongles"].append(dongle_info)
+                                    self.log_info(f"Found CodeMeter dongle via CLI: {dongle_info['device_name']} - {match}")
+            
+            # Also try to parse any table-like output
+            self._parse_codemeter_table_output(output, codemeter_info)
+                                    
         except Exception as e:
             self.log_debug(f"Error parsing CodeMeter CLI output: {str(e)}")
+    
+    def _extract_dongle_name(self, line: str) -> str:
+        """Extract dongle name from CLI line."""
+        line_lower = line.lower()
+        if "halcon" in line_lower:
+            return "MVTec HALCON"
+        elif "mvtec" in line_lower:
+            return "MVTec Dongle"
+        elif "codemeter" in line_lower:
+            return "CodeMeter Dongle"
+        elif "wibu" in line_lower:
+            return "WIBU Dongle"
+        else:
+            return "CodeMeter Dongle (CLI)"
+    
+    def _parse_codemeter_table_output(self, output: str, codemeter_info: Dict[str, Any]):
+        """Parse table-formatted CodeMeter output."""
+        try:
+            lines = output.split('\n')
+            header_found = False
+            
+            for line in lines:
+                line = line.strip()
+                if not line:
+                    continue
+                
+                # Look for table headers
+                if any(header in line.lower() for header in ['name', 'serial', 'type', 'status']):
+                    header_found = True
+                    continue
+                
+                # If we found headers, subsequent lines might be dongle data
+                if header_found and len(line.split()) >= 2:
+                    parts = line.split()
+                    # Look for serial number patterns in table rows
+                    for part in parts:
+                        if '-' in part and any(c.isdigit() for c in part):
+                            # Potential serial number
+                            if not any(part in dongle.get("serial_number", "") for dongle in codemeter_info["dongles"]):
+                                dongle_info = {
+                                    "device_name": "CodeMeter Dongle (Table)",
+                                    "serial_number": part,
+                                    "source": "CLI Table",
+                                    "raw_info": line
+                                }
+                                codemeter_info["dongles"].append(dongle_info)
+                                self.log_info(f"Found dongle from table: {part}")
+                                
+        except Exception as e:
+            self.log_debug(f"Error parsing CodeMeter table output: {str(e)}")
+    
+    def _parse_detailed_codemeter_info(self, output: str, codemeter_info: Dict[str, Any]):
+        """Parse detailed CodeMeter information."""
+        try:
+            lines = output.split('\n')
+            for line in lines:
+                line = line.strip()
+                if "capacity" in line.lower() or "version" in line.lower() or "status" in line.lower():
+                    # Try to match this info with existing dongles
+                    for dongle in codemeter_info["dongles"]:
+                        if dongle.get("serial_number") and dongle["serial_number"] in line:
+                            if "detailed_info" not in dongle:
+                                dongle["detailed_info"] = []
+                            dongle["detailed_info"].append(line)
+                            
+        except Exception as e:
+            self.log_debug(f"Error parsing detailed CodeMeter info: {str(e)}")
     
     def _check_spin_software(self) -> Dict[str, Any]:
         """Legacy check for SPIN software (keep for backward compatibility)."""

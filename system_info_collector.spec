@@ -1,0 +1,67 @@
+# -*- mode: python ; coding: utf-8 -*-
+
+a = Analysis(
+    ['gui_app.py'],
+    pathex=[],
+    binaries=[],
+    datas=[
+        ('README.md', '.'),
+    ],
+    hiddenimports=[
+        'wmi',
+        'pythoncom',
+        'pywintypes',
+        'win32com',
+        'win32com.client',
+        'tkinter',
+        'tkinter.ttk',
+        'tkinter.messagebox',
+        'tkinter.filedialog',
+        'tkinter.scrolledtext',
+        'threading',
+        'json',
+        'csv',
+        'configparser',
+        'xml.etree.ElementTree',
+        'glob',
+        'os',
+        'sys',
+        'time',
+        'datetime',
+        're',
+        'subprocess',
+        'winreg',
+        'pathlib',
+        'logging',
+        'traceback',
+    ],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    noarchive=False,
+)
+
+pyz = PYZ(a.pure)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    [],
+    name='SystemInformationCollector',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=False,  # Set to False for GUI app
+    disable_windowed_traceback=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+    icon='app_icon.ico' if os.path.exists('app_icon.ico') else None,
+    version='version_info.txt' if os.path.exists('version_info.txt') else None,
+)

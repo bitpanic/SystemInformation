@@ -275,3 +275,27 @@ Traceback (most recent call last):
   File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\system_collector.py", line 27, in collect
     self.logger.error(f"Error collecting system information: {str(e)}")
 AttributeError: 'SystemInfoLogger' object has no attribute 'error'
+2025-05-28 14:08:35 - SoftwareCollector - ERROR - log_config.py:199 - log_error() - Error checking CodeMeter dongles: <x_wmi: Unexpected COM Error (-2147352567, 'Exception occurred.', (0, 'SWbemObjectEx', 'An internal error occurred in a remote procedure call (RPC). ', None, 0, -2147023130), None)>
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 537, in __init__
+    for m in ole_object.Methods_:
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\dynamic.py", line 627, in __getattr__
+    ret = self._oleobj_.Invoke(retEntry.dispid, 0, invoke_type, 1)
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'SWbemObjectEx', 'An internal error occurred in a remote procedure call (RPC). ', None, 0, -2147023130), None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 639, in _check_codemeter_dongles
+    for usb_device in c.Win32_USBControllerDevice():
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 880, in query
+    return self._namespace.query(wql, self, fields)
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1072, in query
+    return [ _wmi_object(obj, instance_of, fields) for obj in self._raw_query(wql) ]
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1072, in <listcomp>
+    return [ _wmi_object(obj, instance_of, fields) for obj in self._raw_query(wql) ]
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 546, in __init__
+    handle_com_error()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi: <x_wmi: Unexpected COM Error (-2147352567, 'Exception occurred.', (0, 'SWbemObjectEx', 'An internal error occurred in a remote procedure call (RPC). ', None, 0, -2147023130), None)>

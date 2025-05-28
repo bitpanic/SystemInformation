@@ -999,3 +999,984 @@ AttributeError: 'SystemInfoLogger' object has no attribute 'error'
 2025-05-28 13:59:20 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
 2025-05-28 13:59:20 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 10.61 seconds
 2025-05-28 13:59:20 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 10.605s
+2025-05-28 14:03:53 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:03:53 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:03:53 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:03:53 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (DEBUG)
+2025-05-28 14:03:53 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:03:53 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:03:53 - CLI - INFO - log_config.py:187 - log_info() - CLI Application started with args: {'json': 'test_enhanced_config.json', 'csv': None, 'log_level': 'INFO', 'no_console_log': False, 'no_file_log': False, 'quick': False, 'verbose': True}
+2025-05-28 14:03:53 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:03:53 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:03:53 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:03:53 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:03:53 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:03:53 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:03:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:03:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:03:54 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:03:54 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:03:54 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.30 seconds
+2025-05-28 14:03:54 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:03:54 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:03:54 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:03:54 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:03:55 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.27 seconds
+2025-05-28 14:03:55 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:03:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:03:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:03:55 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:03:55 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 14:03:55 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:03:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:03:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:03:55 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:03:56 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.77 seconds
+2025-05-28 14:03:56 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:03:56 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:03:56 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:03:56 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:03:56 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.09 seconds
+2025-05-28 14:03:56 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:03:56 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:03:56 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:03:56 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:03:56 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:03:56 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:03:56 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:03:56 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:03:56 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:03:56 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:03:56 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:03:57 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WOW6432Node\WIBU-SYSTEMS
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:03:59 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter CLI: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:03:59 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:04:01 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.01 seconds
+2025-05-28 14:04:01 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:04:01 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:04:01 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:04:01 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:04:03 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.17 seconds
+2025-05-28 14:04:03 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 14:04:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 14:04:03 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.66 seconds
+2025-05-28 14:04:03 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 14:04:03 - CLI - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7/7, Duration: 10.66s
+2025-05-28 14:04:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting JSON export to test_enhanced_config.json
+2025-05-28 14:04:03 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: JSON -> test_enhanced_config.json
+2025-05-28 14:04:03 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - JSON export (49389 bytes): 0.00 seconds
+2025-05-28 14:04:03 - CLI - INFO - log_config.py:229 - log_performance() - Performance - CLI JSON export (49,389 bytes): 0.00 seconds
+2025-05-28 14:04:03 - CLI - INFO - log_config.py:229 - log_performance() - Performance - Complete CLI operation: 10.66 seconds
+2025-05-28 14:04:03 - CLI - INFO - log_config.py:187 - log_info() - CLI operation completed successfully. Files: ['test_enhanced_config.json']
+2025-05-28 14:04:37 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:04:37 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:04:37 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:04:37 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (DEBUG)
+2025-05-28 14:04:37 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:04:37 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:04:37 - CLI - INFO - log_config.py:187 - log_info() - CLI Application started with args: {'json': 'test_enhanced_config.json', 'csv': None, 'log_level': 'INFO', 'no_console_log': False, 'no_file_log': False, 'quick': False, 'verbose': True}
+2025-05-28 14:04:37 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:04:37 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:04:37 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:04:37 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:04:37 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:04:37 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:04:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:04:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:04:38 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:04:38 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:04:38 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.27 seconds
+2025-05-28 14:04:38 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:04:38 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:04:38 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:04:38 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:04:39 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.26 seconds
+2025-05-28 14:04:39 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:04:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:04:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:04:39 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:04:40 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 14:04:40 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:04:40 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:04:40 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:04:40 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:04:40 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.78 seconds
+2025-05-28 14:04:40 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:04:40 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:04:40 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:04:40 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:04:40 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.09 seconds
+2025-05-28 14:04:40 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:04:40 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:04:40 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:04:40 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:04:40 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:04:40 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:04:40 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:04:40 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:04:40 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:04:40 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:04:40 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:04:42 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WOW6432Node\WIBU-SYSTEMS
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:04:43 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter CLI: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:04:43 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:04:45 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.05 seconds
+2025-05-28 14:04:45 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:04:45 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:04:45 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:04:45 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:04:50 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:04:50 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:04:50 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:04:50 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:04:50 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:04:50 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:04:50 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:04:50 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:04:52 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 14:04:52 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 14:04:52 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:04:52 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:04:52 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:04:52 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:04:52 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:04:52 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:04:53 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:04:53 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:04:53 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.28 seconds
+2025-05-28 14:04:53 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:04:53 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:04:53 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:04:53 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:04:55 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.25 seconds
+2025-05-28 14:04:55 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:04:55 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:04:55 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 14:04:55 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:04:55 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:04:55 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.76 seconds
+2025-05-28 14:04:55 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:04:55 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:04:55 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.08 seconds
+2025-05-28 14:04:55 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:04:55 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:04:55 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:04:55 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:04:55 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:04:55 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:04:55 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:04:55 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:04:55 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:04:55 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:04:57 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WOW6432Node\WIBU-SYSTEMS
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:04:58 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter CLI: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:04:58 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:05:00 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 4.91 seconds
+2025-05-28 14:05:00 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:05:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:05:00 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:05:00 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:05:03 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.11 seconds
+2025-05-28 14:05:03 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 14:05:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 14:05:03 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.43 seconds
+2025-05-28 14:05:03 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 14:05:03 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 10.44 seconds
+2025-05-28 14:05:03 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 10.435s
+2025-05-28 14:08:28 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:08:28 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:08:28 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:08:28 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (DEBUG)
+2025-05-28 14:08:28 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:08:28 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:08:28 - CLI - INFO - log_config.py:187 - log_info() - CLI Application started with args: {'json': 'dongle_test.json', 'csv': None, 'log_level': 'INFO', 'no_console_log': False, 'no_file_log': False, 'quick': False, 'verbose': True}
+2025-05-28 14:08:28 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:08:28 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:08:28 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:08:28 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:08:28 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:08:28 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:08:28 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:08:28 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:08:30 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:08:30 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:08:30 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.29 seconds
+2025-05-28 14:08:30 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:08:30 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:08:30 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:08:30 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:08:31 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.26 seconds
+2025-05-28 14:08:31 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:08:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:08:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:08:31 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:08:31 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 14:08:31 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:08:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:08:31 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:08:31 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:08:32 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.75 seconds
+2025-05-28 14:08:32 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:08:32 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:08:32 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:08:32 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:08:32 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.09 seconds
+2025-05-28 14:08:32 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:08:32 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:08:32 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:08:32 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:08:32 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:08:32 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:08:32 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:08:32 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:08:32 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:08:32 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:08:32 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:08:33 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:08:33 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Scanning PnP devices for CodeMeter dongles...
+2025-05-28 14:08:35 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Scanning USB devices for CodeMeter dongles...
+2025-05-28 14:08:35 - SoftwareCollector - ERROR - log_config.py:199 - log_error() - Error checking CodeMeter dongles: <x_wmi: Unexpected COM Error (-2147352567, 'Exception occurred.', (0, 'SWbemObjectEx', 'An internal error occurred in a remote procedure call (RPC). ', None, 0, -2147023130), None)>
+Traceback (most recent call last):
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 537, in __init__
+    for m in ole_object.Methods_:
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\win32com\client\dynamic.py", line 627, in __getattr__
+    ret = self._oleobj_.Invoke(retEntry.dispid, 0, invoke_type, 1)
+pywintypes.com_error: (-2147352567, 'Exception occurred.', (0, 'SWbemObjectEx', 'An internal error occurred in a remote procedure call (RPC). ', None, 0, -2147023130), None)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Sebastian\Documents\GitHub\SystemInformation\collectors\software_collector.py", line 639, in _check_codemeter_dongles
+    for usb_device in c.Win32_USBControllerDevice():
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 880, in query
+    return self._namespace.query(wql, self, fields)
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1072, in query
+    return [ _wmi_object(obj, instance_of, fields) for obj in self._raw_query(wql) ]
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 1072, in <listcomp>
+    return [ _wmi_object(obj, instance_of, fields) for obj in self._raw_query(wql) ]
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 546, in __init__
+    handle_com_error()
+  File "c:\Users\Sebastian\Documents\GitHub\SystemInformation\.venv\lib\site-packages\wmi.py", line 258, in handle_com_error
+    raise klass(com_error=err)
+wmi.x_wmi: <x_wmi: Unexpected COM Error (-2147352567, 'Exception occurred.', (0, 'SWbemObjectEx', 'An internal error occurred in a remote procedure call (RPC). ', None, 0, -2147023130), None)>
+2025-05-28 14:08:35 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:08:35 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:08:35 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:08:37 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.17 seconds
+2025-05-28 14:08:37 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:08:37 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:08:37 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:08:37 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:08:39 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.11 seconds
+2025-05-28 14:08:39 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 14:08:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 14:08:39 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.70 seconds
+2025-05-28 14:08:39 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 14:08:39 - CLI - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7/7, Duration: 10.70s
+2025-05-28 14:08:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting JSON export to dongle_test.json
+2025-05-28 14:08:39 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: JSON -> dongle_test.json
+2025-05-28 14:08:39 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - JSON export (49750 bytes): 0.00 seconds
+2025-05-28 14:08:39 - CLI - INFO - log_config.py:229 - log_performance() - Performance - CLI JSON export (49,750 bytes): 0.00 seconds
+2025-05-28 14:08:39 - CLI - INFO - log_config.py:229 - log_performance() - Performance - Complete CLI operation: 10.71 seconds
+2025-05-28 14:08:39 - CLI - INFO - log_config.py:187 - log_info() - CLI operation completed successfully. Files: ['dongle_test.json']
+2025-05-28 14:09:59 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:09:59 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:09:59 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:09:59 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (DEBUG)
+2025-05-28 14:09:59 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:09:59 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:09:59 - CLI - INFO - log_config.py:187 - log_info() - CLI Application started with args: {'json': 'final_enhanced_report.json', 'csv': None, 'log_level': 'INFO', 'no_console_log': False, 'no_file_log': False, 'quick': False, 'verbose': True}
+2025-05-28 14:09:59 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:09:59 - CLI - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:09:59 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:09:59 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:09:59 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:09:59 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:09:59 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:09:59 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:10:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:10:01 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:10:01 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.27 seconds
+2025-05-28 14:10:01 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:10:01 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:10:01 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:10:01 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:10:02 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.25 seconds
+2025-05-28 14:10:02 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:10:02 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:10:02 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:10:02 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:10:02 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.03 seconds
+2025-05-28 14:10:02 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:10:02 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:10:02 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:10:02 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:10:03 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.77 seconds
+2025-05-28 14:10:03 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:10:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:10:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:10:03 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:10:03 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.08 seconds
+2025-05-28 14:10:03 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:10:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:10:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:10:03 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:10:03 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:10:03 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:10:03 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:10:03 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:10:03 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:10:03 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:10:03 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:10:04 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:10:04 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Scanning PnP devices for CodeMeter dongles...
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WOW6432Node\WIBU-SYSTEMS
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS\CodeMeter\Server
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CurrentVersion
+2025-05-28 14:10:06 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter CLI: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Trying CodeMeter command: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Command result - Return code: 0
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter CLI output: cmu.exe - CodeMeter Universal Support Tool.
+Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+
+List all locally connected CmContainers:
+- CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+Result: 1 CmContainer(s) listed.
+
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: cmu.exe - CodeMeter Universal Support Tool.
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: List all locally connected CmContainers:
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: - CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+2025-05-28 14:10:06 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter dongle via CLI: Serial 3-6903986, Version 4.51, Status Enabled
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Result: 1 CmContainer(s) listed.
+2025-05-28 14:10:06 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CLI command 'C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list' found 1 dongles
+2025-05-28 14:10:06 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CodeMeter detection summary: 1 dongles found
+2025-05-28 14:10:06 - SoftwareCollector - INFO - log_config.py:187 - log_info() -   cli_detection: 1 dongles
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:10:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:10:08 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.15 seconds
+2025-05-28 14:10:08 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:10:08 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:10:08 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:10:08 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:10:10 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.10 seconds
+2025-05-28 14:10:10 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 14:10:10 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 14:10:10 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.66 seconds
+2025-05-28 14:10:10 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 14:10:10 - CLI - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7/7, Duration: 10.66s
+2025-05-28 14:10:10 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting JSON export to final_enhanced_report.json
+2025-05-28 14:10:10 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: JSON -> final_enhanced_report.json
+2025-05-28 14:10:10 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - JSON export (49860 bytes): 0.00 seconds
+2025-05-28 14:10:10 - CLI - INFO - log_config.py:229 - log_performance() - Performance - CLI JSON export (49,860 bytes): 0.00 seconds
+2025-05-28 14:10:10 - CLI - INFO - log_config.py:229 - log_performance() - Performance - Complete CLI operation: 10.67 seconds
+2025-05-28 14:10:10 - CLI - INFO - log_config.py:187 - log_info() - CLI operation completed successfully. Files: ['final_enhanced_report.json']
+2025-05-28 14:11:30 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:30 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:30 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:30 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:30 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:30 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:30 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:30 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:30 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:32 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:33 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:33 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:33 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:33 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:33 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:33 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:33 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:33 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:33 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:36 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 14:11:36 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 14:11:36 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:11:36 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:11:36 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:11:36 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:11:36 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:11:36 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:11:37 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:11:37 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:11:37 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.29 seconds
+2025-05-28 14:11:37 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:11:37 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:11:37 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:11:37 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:11:38 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.25 seconds
+2025-05-28 14:11:38 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:11:38 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:11:38 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:11:38 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:11:38 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 14:11:38 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:11:38 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:11:38 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:11:38 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:11:39 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.74 seconds
+2025-05-28 14:11:39 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:11:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:11:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:11:39 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:11:39 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.08 seconds
+2025-05-28 14:11:39 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:11:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:11:39 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:11:39 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:11:39 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:11:39 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:11:39 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:11:39 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:11:39 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:11:39 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:11:39 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:11:41 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:11:41 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Scanning PnP devices for CodeMeter dongles...
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WOW6432Node\WIBU-SYSTEMS
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS\CodeMeter\Server
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CurrentVersion
+2025-05-28 14:11:42 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter CLI: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Trying CodeMeter command: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Command result - Return code: 0
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter CLI output: cmu.exe - CodeMeter Universal Support Tool.
+Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+
+List all locally connected CmContainers:
+- CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+Result: 1 CmContainer(s) listed.
+
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: cmu.exe - CodeMeter Universal Support Tool.
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: List all locally connected CmContainers:
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: - CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+2025-05-28 14:11:42 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter dongle via CLI: Serial 3-6903986, Version 4.51, Status Enabled
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Result: 1 CmContainer(s) listed.
+2025-05-28 14:11:42 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CLI command 'C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list' found 1 dongles
+2025-05-28 14:11:42 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CodeMeter detection summary: 1 dongles found
+2025-05-28 14:11:42 - SoftwareCollector - INFO - log_config.py:187 - log_info() -   cli_detection: 1 dongles
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:11:42 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:11:44 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 5.11 seconds
+2025-05-28 14:11:44 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:11:44 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:11:44 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:11:44 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:11:46 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.10 seconds
+2025-05-28 14:11:46 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 14:11:46 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 14:11:46 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.63 seconds
+2025-05-28 14:11:46 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 14:11:46 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 10.63 seconds
+2025-05-28 14:11:46 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 10.628s
+2025-05-28 14:11:48 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:48 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:48 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:48 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:48 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:48 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:48 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:48 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:52 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:53 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:53 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:53 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:53 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:53 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:53 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:53 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:53 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:54 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:55 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:55 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:55 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:55 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:55 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:55 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:55 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:55 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:55 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:56 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:56 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:56 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:56 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:56 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:56 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:56 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:56 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:56 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:57 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:57 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:57 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:11:57 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:11:57 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:11:57 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:11:58 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:12:01 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 14:12:01 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 14:12:01 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:12:01 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:12:01 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:12:01 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:12:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:12:01 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:12:02 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:12:03 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:12:03 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:12:03 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:12:03 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:12:03 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.25 seconds
+2025-05-28 14:12:03 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:12:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:12:03 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:12:03 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:12:04 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.21 seconds
+2025-05-28 14:12:04 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:12:04 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:12:04 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:12:04 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:12:04 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.04 seconds
+2025-05-28 14:12:04 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:12:04 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:12:04 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:12:04 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:12:04 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.72 seconds
+2025-05-28 14:12:04 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:12:04 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:12:04 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:12:04 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:12:05 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.11 seconds
+2025-05-28 14:12:05 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:12:05 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:12:05 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:12:05 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:12:05 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:12:05 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:12:05 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:12:05 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:12:05 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:12:05 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:12:05 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:12:06 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:12:06 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Scanning PnP devices for CodeMeter dongles...
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WOW6432Node\WIBU-SYSTEMS
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS\CodeMeter\Server
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CurrentVersion
+2025-05-28 14:12:07 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter CLI: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Trying CodeMeter command: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Command result - Return code: 0
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter CLI output: cmu.exe - CodeMeter Universal Support Tool.
+Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+
+List all locally connected CmContainers:
+- CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+Result: 1 CmContainer(s) listed.
+
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: cmu.exe - CodeMeter Universal Support Tool.
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: List all locally connected CmContainers:
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: - CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+2025-05-28 14:12:07 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter dongle via CLI: Serial 3-6903986, Version 4.51, Status Enabled
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Result: 1 CmContainer(s) listed.
+2025-05-28 14:12:07 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CLI command 'C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list' found 1 dongles
+2025-05-28 14:12:07 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CodeMeter detection summary: 1 dongles found
+2025-05-28 14:12:07 - SoftwareCollector - INFO - log_config.py:187 - log_info() -   cli_detection: 1 dongles
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:12:07 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:12:09 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 4.89 seconds
+2025-05-28 14:12:09 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:12:09 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:12:09 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:12:09 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:12:12 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.11 seconds
+2025-05-28 14:12:12 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 14:12:12 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 14:12:12 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.32 seconds
+2025-05-28 14:12:12 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 14:12:12 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 10.32 seconds
+2025-05-28 14:12:12 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 10.319s
+2025-05-28 14:12:36 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:14:24 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:14:24 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:14:24 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:14:24 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:14:24 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:14:24 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:14:24 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:14:24 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:14:42 - __main__ - INFO - log_config.py:187 - log_info() - Starting system information collection from GUI
+2025-05-28 14:14:42 - __main__ - INFO - log_config.py:187 - log_info() - Collection thread started
+2025-05-28 14:14:42 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting comprehensive system information collection
+2025-05-28 14:14:42 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting pci information collection
+2025-05-28 14:14:42 - PCICollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: PCI
+2025-05-28 14:14:42 - PCICollector - INFO - log_config.py:187 - log_info() - Starting PCI device collection
+2025-05-28 14:14:42 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Initializing WMI connection
+2025-05-28 14:14:42 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Querying Win32_PnPEntity for PCI devices
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: NVIDIA GeForce RTX 4080: {'device_id': 'PCI\\VEN_10DE&DEV_2704&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0008'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4E: {'device_id': 'PCI\\VEN_8086&DEV_7A4E&SUBSYS_88821043&REV_11\\3&11583659&0&AA'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #3 - 7A3A: {'device_id': 'PCI\\VEN_8086&DEV_7A3A&SUBSYS_88821043&REV_11\\3&11583659&0&E2'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: PCI standard host CPU bridge: {'device_id': 'PCI\\VEN_8086&DEV_A700&SUBSYS_88821043&REV_01\\3&11583659&0&00'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Ethernet Controller I226-V: {'device_id': 'PCI\\VEN_8086&DEV_125C&SUBSYS_88671043&REV_06\\E89C25FFFF6BFEEF00'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 060 (x4) G4 - A74D: {'device_id': 'PCI\\VEN_8086&DEV_A74D&SUBSYS_88821043&REV_01\\3&11583659&0&30'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Shared SRAM - 7A27: {'device_id': 'PCI\\VEN_8086&DEV_7A27&SUBSYS_88821043&REV_11\\3&11583659&0&A2'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #9 - 7A30: {'device_id': 'PCI\\VEN_8086&DEV_7A30&SUBSYS_88821043&REV_11\\3&11583659&0&E8'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4D: {'device_id': 'PCI\\VEN_8086&DEV_7A4D&SUBSYS_88821043&REV_11\\3&11583659&0&A9'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #1 - 7A38: {'device_id': 'PCI\\VEN_8086&DEV_7A38&SUBSYS_88821043&REV_11\\3&11583659&0&E0'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SPI (flash) Controller - 7A24: {'device_id': 'PCI\\VEN_8086&DEV_7A24&SUBSYS_88821043&REV_11\\3&11583659&0&FD'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel RST VMD Controller A77F: {'device_id': 'PCI\\VEN_8086&DEV_A77F&SUBSYS_88821043&REV_00\\3&11583659&0&70'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Platform Monitoring Technology Driver: {'device_id': 'PCI\\VEN_8086&DEV_A77D&SUBSYS_88821043&REV_01\\3&11583659&0&50'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) USB 3.20 eXtensible Host Controller - 1.20 (Microsoft): {'device_id': 'PCI\\VEN_8086&DEV_7A60&SUBSYS_88821043&REV_11\\3&11583659&0&A0'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard NVM Express Controller: {'device_id': 'PCI\\VEN_15B7&DEV_5017&SUBSYS_501715B7&REV_01\\4&E45FC2A&0&0030'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Management Engine Interface #1: {'device_id': 'PCI\\VEN_8086&DEV_7A68&SUBSYS_88821043&REV_11\\3&11583659&0&B0'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) LPC Controller/eSPI Controller - 7A04: {'device_id': 'PCI\\VEN_8086&DEV_7A04&SUBSYS_88821043&REV_11\\3&11583659&0&F8'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCIe RC 010 G5 - A70D: {'device_id': 'PCI\\VEN_8086&DEV_A70D&SUBSYS_88821043&REV_01\\3&11583659&0&08'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Serial IO I2C Host Controller - 7A4C: {'device_id': 'PCI\\VEN_8086&DEV_7A4C&SUBSYS_88821043&REV_11\\3&11583659&0&A8'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #17 - 7A40: {'device_id': 'PCI\\VEN_8086&DEV_7A40&SUBSYS_88821043&REV_11\\3&11583659&0&D8'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A50&SUBSYS_887C1043&REV_11\\3&11583659&0&FB'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) PCI Express Root Port #25 - 7A48: {'device_id': 'PCI\\VEN_8086&DEV_7A48&SUBSYS_88821043&REV_11\\3&11583659&0&D0'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) SMBus - 7A23: {'device_id': 'PCI\\VEN_8086&DEV_7A23&SUBSYS_88821043&REV_11\\3&11583659&0&FC'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Standard SATA AHCI Controller: {'device_id': 'PCI\\VEN_8086&DEV_7A62&SUBSYS_88821043&REV_11\\3&11583659&0&B8'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: High Definition Audio Controller: {'device_id': 'PCI\\VEN_10DE&DEV_22BB&SUBSYS_179510DE&REV_A1\\4&256A0AA8&0&0108'}
+2025-05-28 14:14:43 - PCICollector - DEBUG - log_config.py:191 - log_debug() - Processing PCI device: Intel(R) Wi-Fi 6E AX211 160MHz: {'device_id': 'PCI\\VEN_8086&DEV_7A70&SUBSYS_00948086&REV_11\\3&11583659&0&A3'}
+2025-05-28 14:14:43 - PCICollector - INFO - log_config.py:187 - log_info() - Successfully collected 26 PCI devices
+2025-05-28 14:14:43 - PCICollector - INFO - log_config.py:229 - log_performance() - Performance - PCI collection: 1.24 seconds
+2025-05-28 14:14:43 - PCICollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: PCI - 26 items collected
+2025-05-28 14:14:43 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected pci information
+2025-05-28 14:14:43 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting usb information collection
+2025-05-28 14:14:43 - USBCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: USB
+2025-05-28 14:14:44 - USBCollector - INFO - log_config.py:229 - log_performance() - Performance - USB collection: 1.20 seconds
+2025-05-28 14:14:44 - USBCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: USB - 31 items collected
+2025-05-28 14:14:44 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected usb information
+2025-05-28 14:14:44 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting memory information collection
+2025-05-28 14:14:44 - MemoryCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Memory
+2025-05-28 14:14:44 - MemoryCollector - INFO - log_config.py:229 - log_performance() - Performance - Memory collection: 0.05 seconds
+2025-05-28 14:14:44 - MemoryCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Memory - 2 items collected
+2025-05-28 14:14:44 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected memory information
+2025-05-28 14:14:44 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting storage information collection
+2025-05-28 14:14:44 - StorageCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Storage
+2025-05-28 14:14:45 - StorageCollector - INFO - log_config.py:229 - log_performance() - Performance - Storage collection: 0.71 seconds
+2025-05-28 14:14:45 - StorageCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Storage - 2 items collected
+2025-05-28 14:14:45 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected storage information
+2025-05-28 14:14:45 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting operating_system information collection
+2025-05-28 14:14:45 - OSCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: OS
+2025-05-28 14:14:45 - OSCollector - INFO - log_config.py:229 - log_performance() - Performance - OS collection: 0.10 seconds
+2025-05-28 14:14:45 - OSCollector - INFO - log_config.py:210 - log_collection_success() - Collection completed successfully: OS
+2025-05-28 14:14:45 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected operating_system information
+2025-05-28 14:14:45 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting software information collection
+2025-05-28 14:14:45 - SoftwareCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: Software
+2025-05-28 14:14:45 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for CodeMeter dongles
+2025-05-28 14:14:46 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter service: CodeMeter.exe, State: Running
+2025-05-28 14:14:46 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Scanning PnP devices for CodeMeter dongles...
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WOW6432Node\WIBU-SYSTEMS
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CodeMeter
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: Shell Extension
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Found CodeMeter registry entry: SOFTWARE\WIBU-SYSTEMS\CodeMeter\Server
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter registry subkey: CurrentVersion
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter CLI: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Trying CodeMeter command: C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Command result - Return code: 0
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - CodeMeter CLI output: cmu.exe - CodeMeter Universal Support Tool.
+Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+
+List all locally connected CmContainers:
+- CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+Result: 1 CmContainer(s) listed.
+
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: cmu.exe - CodeMeter Universal Support Tool.
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Version 8.30 of 2025-Mar-26(Build 6879) for Win64
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Copyright (C) 2007-2025 by WIBU-SYSTEMS AG. All rights reserved.
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: List all locally connected CmContainers:
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: - CmContainer with Serial Number 3-6903986 and version 4.51 (enabled)
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found CodeMeter dongle via CLI: Serial 3-6903986, Version 4.51, Status Enabled
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Parsing CLI line: Result: 1 CmContainer(s) listed.
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CLI command 'C:\Program Files\CodeMeter\Runtime\bin\cmu.exe --list' found 1 dongles
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - CodeMeter detection summary: 1 dongles found
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() -   cli_detection: 1 dongles
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Checking for Stratus software in C:\ProgramData\StratusVision
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found StratusVision directory: C:\ProgramData\StratusVision
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Processing StratusVision directory: SPINDLE 4.5.8.0
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - Found 1 StratusVision installations
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPIN installations: 0
+2025-05-28 14:14:48 - SoftwareCollector - INFO - log_config.py:187 - log_info() - SPINDLE installations: 1
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\WOW6432Node\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:14:48 - SoftwareCollector - DEBUG - log_config.py:191 - log_debug() - Registry search error in SOFTWARE\SPIN: [WinError 2] The system cannot find the file specified
+2025-05-28 14:14:50 - SoftwareCollector - INFO - log_config.py:229 - log_performance() - Performance - Software collection: 4.91 seconds
+2025-05-28 14:14:50 - SoftwareCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: Software - 0 items collected
+2025-05-28 14:14:50 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected software information
+2025-05-28 14:14:50 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting system information collection
+2025-05-28 14:14:50 - SystemCollector - INFO - log_config.py:203 - log_collection_start() - Starting collection: System
+2025-05-28 14:14:52 - SystemCollector - INFO - log_config.py:229 - log_performance() - Performance - System collection: 2.11 seconds
+2025-05-28 14:14:52 - SystemCollector - INFO - log_config.py:208 - log_collection_success() - Collection completed successfully: System - 1 items collected
+2025-05-28 14:14:52 - system_info_manager - INFO - log_config.py:187 - log_info() - Successfully collected system information
+2025-05-28 14:14:52 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - Complete system information collection: 10.33 seconds
+2025-05-28 14:14:52 - system_info_manager - INFO - log_config.py:187 - log_info() - System information collection completed - Success: 7, Failed: 0
+2025-05-28 14:14:52 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI collection thread: 10.33 seconds
+2025-05-28 14:14:52 - __main__ - INFO - log_config.py:187 - log_info() - Collection completed - Success: 7, Failed: 0, Duration: 10.335s
+2025-05-28 14:17:58 - __main__ - INFO - log_config.py:187 - log_info() - Starting CSV export from GUI
+2025-05-28 14:18:02 - system_info_manager - INFO - log_config.py:187 - log_info() - Starting CSV export to C:/Users/Sebastian/Desktop/asd.csv
+2025-05-28 14:18:02 - system_info_manager - INFO - log_config.py:219 - log_export_operation() - Export successful: CSV -> C:/Users/Sebastian/Desktop/asd.csv
+2025-05-28 14:18:02 - system_info_manager - INFO - log_config.py:229 - log_performance() - Performance - CSV export (42141 bytes, 64 rows): 0.00 seconds
+2025-05-28 14:18:02 - __main__ - INFO - log_config.py:229 - log_performance() - Performance - GUI CSV export: 0.00 seconds
+2025-05-28 14:19:06 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:21:02 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:21:02 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:21:02 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:21:02 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:21:02 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:21:02 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:21:02 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:21:02 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:21:37 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
+2025-05-28 14:21:48 - log_config - INFO - log_config.py:115 - setup_logging() - ================================================================================
+2025-05-28 14:21:48 - log_config - INFO - log_config.py:116 - setup_logging() - System Information Collector - Logging Started
+2025-05-28 14:21:48 - log_config - INFO - log_config.py:117 - setup_logging() - Log directory: C:\Users\Sebastian\Documents\GitHub\SystemInformation\logs
+2025-05-28 14:21:48 - log_config - INFO - log_config.py:118 - setup_logging() - Console logging: Enabled (INFO)
+2025-05-28 14:21:48 - log_config - INFO - log_config.py:119 - setup_logging() - File logging: Enabled (DEBUG)
+2025-05-28 14:21:48 - log_config - INFO - log_config.py:120 - setup_logging() - ================================================================================
+2025-05-28 14:21:48 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application started
+2025-05-28 14:21:48 - system_info_manager - INFO - log_config.py:187 - log_info() - SystemInfoManager initialized
+2025-05-28 14:21:50 - __main__ - INFO - log_config.py:187 - log_info() - GUI Application shutting down
