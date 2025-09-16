@@ -19,16 +19,42 @@ class SoftwareCollector(BaseCollector):
     def collect(self) -> Dict[str, Any]:
         """Collect software information with focus on SPIN/SPINDLE software and CodeMeter dongles."""
         try:
-            # Collect dongle information separately
+            # Collect dongle and SPIN information
             codemeter_dongles = self._check_codemeter_dongles()
+            spin_info = self._check_spin_software()  # compute early so we can ensure it's listed
+            
+            # Installed programs (full and filtered views)
+            installed_programs = self._get_installed_programs()
+            installed_programs_filtered = self._filter_programs(installed_programs, spin_info)
+            
+            # Fallback: if nothing detected via registry, try WMI (Win32_Product)
+            if (not installed_programs) or (len(installed_programs) == 0):
+                try:
+                    wmi_programs = self._get_installed_programs_wmi()
+                    if wmi_programs:
+                        installed_programs = wmi_programs
+                        installed_programs_filtered = self._filter_programs(installed_programs, spin_info)
+                        self.log_info(f"WMI fallback programs detected: raw={len(installed_programs)}, filtered={len(installed_programs_filtered)}")
+                except Exception as e:
+                    self.log_debug(f"WMI fallback failed: {str(e)}")
             
             result = {
                 "stratusvision_software": self._check_stratus_software(),
                 "codemeter_dongles": codemeter_dongles,
-                "spin_info": self._check_spin_software(),  # Keep legacy check
-                "installed_programs": self._get_installed_programs(),
+                "spin_info": spin_info,  # Keep legacy check
+                "installed_programs": installed_programs,
+                "installed_programs_filtered": installed_programs_filtered,
                 "status": "success"
             }
+            
+            # Debug counts for diagnostics
+            try:
+                self.log_info(f"Installed programs detected: raw={len(installed_programs)}, filtered={len(installed_programs_filtered)}")
+                if installed_programs_filtered and len(installed_programs_filtered) > 0:
+                    sample = installed_programs_filtered[:5]
+                    self.log_debug(f"Filtered programs sample: {[ (s.get('name'), s.get('version')) for s in sample ]}")
+            except Exception:
+                pass
             
             # Also store dongles separately for easy access by GUI
             # This allows the GUI to get dongles independently
@@ -43,6 +69,7 @@ class SoftwareCollector(BaseCollector):
                 "codemeter_dongles": {"error": str(e)},
                 "spin_info": {"installed": False, "error": str(e)},
                 "installed_programs": [],
+                "installed_programs_filtered": [],
                 "error": str(e),
                 "status": "failed",
                 "_separate_dongles": {"error": str(e)}
@@ -1256,7 +1283,93 @@ class SoftwareCollector(BaseCollector):
             except Exception as e:
                 self.log_debug(f"Error accessing programs registry {path}: {str(e)}")
         
-        return programs[:50]  # Limit to first 50 programs to avoid overwhelming output
+        return programs
+
+    def _get_installed_programs_wmi(self) -> List[Dict[str, Any]]:
+        """Fallback: Get installed programs via WMI Win32_Product (can be slow, use only if needed)."""
+        try:
+            c = wmi.WMI()
+            programs: List[Dict[str, Any]] = []
+            # Limit to first 200 entries to avoid very long scans
+            count = 0
+            for prod in c.Win32_Product():
+                entry = {
+                    "name": getattr(prod, 'Name', None),
+                    "version": getattr(prod, 'Version', None),
+                    "publisher": getattr(prod, 'Vendor', None),
+                    "installdate": getattr(prod, 'InstallDate', None),
+                    "installlocation": getattr(prod, 'InstallLocation', None),
+                }
+                if entry.get("name"):
+                    programs.append(entry)
+                    count += 1
+                    if count >= 200:
+                        break
+            return programs
+        except Exception as e:
+            self.log_debug(f"Error in _get_installed_programs_wmi: {str(e)}")
+            return []
+
+    def _filter_programs(self, programs: List[Dict[str, Any]], spin_info: Dict[str, Any] = None) -> List[Dict[str, Any]]:
+        """Filter out Microsoft/Windows updates and common runtimes to focus on user-installed apps.
+        Always ensure SPIN entries are present if detected via other methods.
+        """
+        filtered: List[Dict[str, Any]] = []
+        if not programs:
+            return filtered
+
+        exclude_name_tokens = [
+            "microsoft", "windows", "security update", "update", "hotfix", "servicing stack",
+            "cumulative update", "feature update", "update for", "kb", "redistributable",
+            "visual c++", "windows sdk", ".net", "edge", "onedrive", "webview2", "vc++"
+        ]
+        exclude_publishers = ["microsoft", "microsoft corporation", "windows"]
+
+        def should_exclude(entry: Dict[str, Any]) -> bool:
+            name = (entry.get("name") or "").lower()
+            publisher = (entry.get("publisher") or "").lower()
+            # Exclude if name or publisher matches tokens
+            if any(tok in name for tok in exclude_name_tokens):
+                return True
+            if any(pub in publisher for pub in exclude_publishers):
+                return True
+            # Exclude if clearly system component
+            if entry.get("installdate") == "" and not entry.get("installlocation"):
+                # Heuristic: no path or date often means system listing
+                return False  # keep neutral
+            return False
+
+        for p in programs:
+            try:
+                if not should_exclude(p):
+                    filtered.append({
+                        "name": p.get("name", "Unknown"),
+                        "version": p.get("version", ""),
+                        "publisher": p.get("publisher", ""),
+                        "installdate": p.get("installdate", ""),
+                        "installlocation": p.get("installlocation", "")
+                    })
+            except Exception:
+                continue
+
+        # Ensure SPIN appears if detected
+        try:
+            if spin_info and spin_info.get("installed"):
+                spin_entry = {
+                    "name": "SPIN",
+                    "version": spin_info.get("version", "Not found"),
+                    "publisher": "",
+                    "installdate": "",
+                    "installlocation": spin_info.get("install_path", "")
+                }
+                if not any((e.get("name", "").lower() == "spin") for e in filtered):
+                    filtered.insert(0, spin_entry)
+        except Exception:
+            pass
+
+        # Sort by name then version, limit to reasonable count
+        filtered.sort(key=lambda x: (x.get("name") or "", x.get("version") or ""))
+        return filtered[:200]
     
     def _get_program_info(self, hkey: int, path: str) -> Dict[str, Any]:
         """Get program information from registry key."""

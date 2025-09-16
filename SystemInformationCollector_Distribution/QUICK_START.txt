@@ -1,9 +1,0 @@
-# Quick Start Instructions 
- 
-1. Double-click SystemInformationCollector.exe 
-2. If Windows warns about security, click "More info" then "Run anyway" 
-3. For best results, right-click and "Run as administrator" 
-4. Click "Collect System Info" to scan your system 
-5. Use Export buttons to save data as JSON or CSV 
- 
-For full documentation, see README.md and INSTALLATION_GUIDE.md 

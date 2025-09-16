@@ -76,6 +76,10 @@ a = Analysis(
         'pathlib',
         'logging',
         'traceback',
+        'reportlab',
+        'reportlab.lib',
+        'reportlab.platypus',
+        'reportlab.platypus.flowables',
     ],
     hookspath=[],
     hooksconfig={},
@@ -379,7 +383,7 @@ def main():
     
     # Check if PyInstaller is available
     try:
-        subprocess.run(['pyinstaller', '--version'], check=True, capture_output=True)
+        subprocess.run([sys.executable, '-m', 'PyInstaller', '--version'], check=True, capture_output=True)
     except (subprocess.CalledProcessError, FileNotFoundError):
         print("PyInstaller not found. Installing...")
         if not run_command('pip install pyinstaller', "Installing PyInstaller"):
@@ -388,7 +392,8 @@ def main():
     
     # Build the executable
     print("Building standalone executable...")
-    if not run_command('pyinstaller system_info_collector.spec --clean', "Building executable with PyInstaller"):
+    build_cmd = f'"{sys.executable}" -m PyInstaller system_info_collector.spec --clean'
+    if not run_command(build_cmd, "Building executable with PyInstaller"):
         print("Failed to build executable.")
         sys.exit(1)
     

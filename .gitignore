@@ -1,0 +1,56 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+.env/
+.env.*
+pip-wheel-metadata/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# PyInstaller
+*.toc
+*.pyz
+*.pkg
+
+# Test & coverage
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Logs
+logs/
+!logs/.gitkeep
+*.log
+*.log.*
+
+# Installer output & bundles
+installer_output/
+SystemInformationCollector_Distribution/
+
+# Generated reports/artifacts
+system_info_*.json
+system_info_*.csv
+final_enhanced_report.json
+test_output.json
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editors/IDE
+.vscode/
+.idea/
+
+# Local tools
+.cache/

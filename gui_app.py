@@ -74,6 +74,10 @@ class SystemInfoGUI:
         self.export_csv_btn = ttk.Button(export_frame, text="Export as CSV", 
                                         command=self.export_csv, width=18, state='disabled')
         self.export_csv_btn.grid(row=1, column=0)
+
+        self.export_pdf_btn = ttk.Button(export_frame, text="Export as PDF", 
+                                        command=self.export_pdf, width=18, state='disabled')
+        self.export_pdf_btn.grid(row=2, column=0, pady=(5,0))
         
         # Logging controls
         log_frame = ttk.LabelFrame(control_frame, text="Logging Controls", padding="10")
@@ -377,6 +381,7 @@ class SystemInfoGUI:
         # Enable export buttons
         self.export_json_btn.config(state='normal')
         self.export_csv_btn.config(state='normal')
+        self.export_pdf_btn.config(state='normal')
         self.collect_btn.config(state='normal')
         
         # Update all tabs with collected information
@@ -497,12 +502,15 @@ Collection Status: {summary.get('collection_status', 'Unknown')}
         text_widget.config(state='normal')
         text_widget.delete(1.0, tk.END)
         
-        # For software tab, exclude dongle data to avoid duplication
+        # For software tab, exclude dongle data to avoid duplication and show filtered list
         if category == 'software' and isinstance(data, dict):
             filtered_data = data.copy()
-            # Remove dongle data from software display
             filtered_data.pop('codemeter_dongles', None)
             filtered_data.pop('_separate_dongles', None)
+            # Prefer showing installed_programs_filtered for clarity
+            if 'installed_programs_filtered' in filtered_data:
+                filtered_data['installed_programs'] = filtered_data['installed_programs_filtered']
+                filtered_data.pop('installed_programs_filtered', None)
             formatted_data = json.dumps(filtered_data, indent=2, ensure_ascii=False)
         else:
             # Format and display the data
@@ -582,6 +590,34 @@ Collection Status: {summary.get('collection_status', 'Unknown')}
             except Exception as e:
                 self.logger.logger.error(f"CSV export failed: {str(e)}", exc_info=True)
                 messagebox.showerror("Error", f"Failed to export CSV file:\n{str(e)}")
+
+    def export_pdf(self):
+        """Export system information to PDF file."""
+        if not self.system_info:
+            self.logger.logger.warning("No system information to export")
+            messagebox.showwarning("Warning", "No system information collected yet!")
+            return
+        
+        self.logger.log_info("Starting PDF export from GUI")
+        
+        filename = filedialog.asksaveasfilename(
+            defaultextension=".pdf",
+            filetypes=[("PDF files", "*.pdf"), ("All files", "*.*")],
+            title="Save System Information as PDF"
+        )
+        
+        if filename:
+            try:
+                export_start_time = time.time()
+                actual_filename = self.manager.export_to_pdf(filename)
+                export_duration = time.time() - export_start_time
+                
+                self.logger.log_performance(f"GUI PDF export", export_duration)
+                messagebox.showinfo("Success", f"System information exported to:\n{actual_filename}")
+                
+            except Exception as e:
+                self.logger.logger.error(f"PDF export failed: {str(e)}", exc_info=True)
+                messagebox.showerror("Error", f"Failed to export PDF file:\n{str(e)}")
 
 
 def main():

@@ -29,6 +29,8 @@ Examples:
                       help='Export to JSON format (optionally specify filename)')
     parser.add_argument('--csv', nargs='?', const=True,
                       help='Export to CSV format (optionally specify filename)')
+    parser.add_argument('--pdf', nargs='?', const=True,
+                      help='Export to PDF format (optionally specify filename)')
     
     # Logging options
     parser.add_argument('--log-level', default='INFO',
@@ -61,8 +63,8 @@ Examples:
     logger = SystemInfoLogger("CLI")
     logger.log_info(f"CLI Application started with args: {vars(args)}")
     
-    if not args.json and not args.csv:
-        print("No export format specified. Use --json and/or --csv to export data.")
+    if not args.json and not args.csv and not args.pdf:
+        print("No export format specified. Use --json, --csv and/or --pdf to export data.")
         print("Use --help for more information.")
         logger.logger.warning("No export format specified")
         sys.exit(1)
@@ -136,6 +138,26 @@ Examples:
                 logger.logger.error(f"CSV export failed: {e}", exc_info=True)
                 print(f"Error exporting CSV: {e}")
         
+        if args.pdf:
+            try:
+                print("Exporting to PDF...")
+                export_start_time = time.time()
+                
+                pdf_filename = args.pdf if isinstance(args.pdf, str) else None
+                exported_pdf = manager.export_to_pdf(pdf_filename)
+                
+                export_duration = time.time() - export_start_time
+                file_size = Path(exported_pdf).stat().st_size if Path(exported_pdf).exists() else 0
+                
+                print(f"PDF exported: {exported_pdf} ({file_size:,} bytes)")
+                export_files.append(exported_pdf)
+                
+                logger.log_performance(f"CLI PDF export ({file_size:,} bytes)", export_duration)
+                
+            except Exception as e:
+                logger.logger.error(f"PDF export failed: {e}", exc_info=True)
+                print(f"Error exporting PDF: {e}")
+
         # Summary
         total_duration = time.time() - collection_start_time
         print(f"\nTotal operation time: {total_duration:.2f} seconds")

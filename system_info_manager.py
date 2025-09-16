@@ -6,6 +6,8 @@ import os
 import time
 from datetime import datetime
 from typing import Dict, Any
+from pathlib import Path
+from pdf_exporter import PDFExporter
 from log_config import setup_application_logging, SystemInfoLogger
 from collectors.pci_collector import PCICollector
 from collectors.usb_collector import USBCollector
@@ -166,6 +168,33 @@ class SystemInfoManager:
             self.logger.log_export_operation("CSV", filename, False)
             self.logger.logger.error(f"Failed to export to CSV file {filename}: {str(e)}", exc_info=True)
             raise
+
+    def export_to_pdf(self, filename: str = None) -> str:
+        """Export system information to a styled PDF report."""
+        start_time = time.time()
+        
+        if not filename:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"system_info_{timestamp}.pdf"
+        
+        self.logger.log_info(f"Starting PDF export to {filename}")
+        
+        try:
+            exporter = PDFExporter(self.logger)
+            output_path = exporter.generate_report(self.system_info, filename)
+            
+            duration = time.time() - start_time
+            file_size = os.path.getsize(output_path) if os.path.exists(output_path) else 0
+            
+            self.logger.log_export_operation("PDF", output_path, True)
+            self.logger.log_performance(f"PDF export ({file_size} bytes)", duration)
+            
+            return output_path
+        except Exception as e:
+            duration = time.time() - start_time
+            self.logger.log_export_operation("PDF", filename, False)
+            self.logger.logger.error(f"Failed to export to PDF file {filename}: {str(e)}", exc_info=True)
+            raise
     
     def _flatten_data(self, data: Dict[str, Any], parent_key: str = '') -> list:
         """Flatten nested dictionary data for CSV export."""
@@ -228,7 +257,14 @@ class SystemInfoManager:
                 else:
                     # For other categories, create a single row
                     row = {'category': category.replace('_', ' ').title()}
-                    row.update(flatten_dict(category_data))
+                    # Use filtered software list if present
+                    if category == 'software' and 'installed_programs_filtered' in category_data:
+                        temp = category_data.copy()
+                        temp['installed_programs'] = category_data.get('installed_programs_filtered', [])
+                        temp.pop('installed_programs_filtered', None)
+                        row.update(flatten_dict(temp))
+                    else:
+                        row.update(flatten_dict(category_data))
                     flattened_rows.append(row)
         
         return flattened_rows

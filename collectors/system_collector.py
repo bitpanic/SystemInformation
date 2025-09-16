@@ -18,6 +18,7 @@ class SystemCollector(BaseCollector):
                 "cpu_info": self._get_cpu_info(c),
                 "gpu_info": self._get_gpu_info(c),
                 "motherboard_info": self._get_motherboard_info(c),
+                "dell_info": self._get_dell_info(c),
                 "system_performance": self._get_performance_info(),
                 "status": "success"
             }
@@ -29,6 +30,7 @@ class SystemCollector(BaseCollector):
                 "cpu_info": {},
                 "gpu_info": [],
                 "motherboard_info": {},
+                "dell_info": {},
                 "system_performance": {},
                 "error": str(e),
                 "status": "failed"
@@ -95,6 +97,55 @@ class SystemCollector(BaseCollector):
             
         except Exception as e:
             self.log_error(f"Error collecting motherboard information: {str(e)}", exc_info=True)
+            return {"error": str(e)}
+
+    def _get_dell_info(self, wmi_connection) -> Dict[str, Any]:
+        """Get Dell-specific system identifiers like service tag (asset tag)."""
+        try:
+            dell_info = {}
+            try:
+                # Dell service tag is typically exposed as SMBIOS AssetTag or via Dell WMI classes
+                for sys in wmi_connection.Win32_SystemEnclosure():
+                    if getattr(sys, 'SMBIOSAssetTag', None):
+                        dell_info["service_tag"] = sys.SMBIOSAssetTag
+                        break
+            except Exception:
+                pass
+
+            # Fallbacks: Chassis AssetTag or BIOS SerialNumber
+            if "service_tag" not in dell_info:
+                try:
+                    for cs in wmi_connection.Win32_ComputerSystemProduct():
+                        if getattr(cs, 'IdentifyingNumber', None):
+                            dell_info["service_tag"] = cs.IdentifyingNumber
+                            break
+                except Exception:
+                    pass
+
+            if "service_tag" not in dell_info:
+                try:
+                    for bios in wmi_connection.Win32_BIOS():
+                        if getattr(bios, 'SerialNumber', None):
+                            dell_info["service_tag"] = bios.SerialNumber
+                            break
+                except Exception:
+                    pass
+
+            # Manufacturer and Model for clarity
+            try:
+                for cs in wmi_connection.Win32_ComputerSystem():
+                    dell_info.setdefault("manufacturer", cs.Manufacturer or "Unknown")
+                    dell_info.setdefault("model", cs.Model or "Unknown")
+                    break
+            except Exception:
+                pass
+
+            if not dell_info:
+                dell_info = {"error": "Dell info not available"}
+
+            return dell_info
+        except Exception as e:
+            self.log_error(f"Error collecting Dell information: {str(e)}", exc_info=True)
             return {"error": str(e)}
     
     def _get_performance_info(self) -> Dict[str, Any]:
