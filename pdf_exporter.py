@@ -41,7 +41,7 @@ class PDFExporter:
         )
         # Default caps to keep report concise
         self.max_software_rows = None  # show all installed programs
-        self.max_pci_rows = 25
+        self.max_pci_rows = None  # show all PCI devices
         self.max_usb_rows = 20
 
     def generate_report(self, data: Dict[str, Any], output_filename: str) -> str:
@@ -78,6 +78,12 @@ class PDFExporter:
         collection_ts = data.get("collection_timestamp", "Unknown")
         overview_rows.append(["Collection Time", collection_ts])
 
+        # Add computer name
+        comp = data.get("operating_system", {}).get("computer_info", {})
+        env = data.get("operating_system", {}).get("environment_info", {})
+        computer_name = comp.get("computer_name") or env.get("hostname") or "Unknown"
+        overview_rows.append(["Computer Name", computer_name])
+
         # CPU, OS, GPU, RAM total
         cpu = data.get("system", {}).get("cpu_info", {})
         os_info = data.get("operating_system", {}).get("os_info", {})
@@ -102,22 +108,37 @@ class PDFExporter:
         overview_table = self._make_kv_table(overview_rows)
         story.append(overview_table)
 
-        # USB section (concise): name, class, vendor:product, serial
-        story.append(Paragraph("USB Devices (Connected)", self.section_style))
-        usb = data.get("usb", {})
-        usb_devices = usb.get("usb_devices", [])
-        usb_table_data = [["Name", "Class", "VID:PID", "Serial"]]
-        for d in usb_devices[: self.max_usb_rows]:
-            vid = d.get("vendor_id", "??")
-            pid = d.get("product_id", "??")
-            usb_table_data.append([
-                d.get("device_name", "Unknown"),
-                d.get("usb_class", "Unknown"),
-                f"{vid}:{pid}",
-                d.get("serial_number", ""),
+        # Network Interfaces section (Interface, IPs, Subnets only)
+        story.append(Paragraph("Network Interfaces", self.section_style))
+        net = data.get("network", {})
+        nics = net.get("network_interfaces", [])
+        net_table = [["Interface", "IP(s)", "Subnet(s)"]]
+        for n in nics:
+            ips = ", ".join(n.get("ip_addresses", []) or [])
+            subs = ", ".join(n.get("subnet_masks", []) or [])
+            net_table.append([
+                Paragraph(n.get("interface_name", "Unknown"), self.small_style),
+                Paragraph(ips or "", self.small_style),
+                Paragraph(subs or "", self.small_style),
             ])
-        story.append(self._make_table(usb_table_data))
-        self._maybe_note_truncation(story, len(usb_devices), len(usb_table_data) - 1, "USB devices")
+        if len(net_table) == 1:
+            net_table.append(["None detected", "-", "-"])
+        story.append(self._make_table(net_table, col_widths=[60 * mm, 74 * mm, 40 * mm]))
+
+        # Network Scan section (with Serial if available)
+        scan = net.get("network_scan", {})
+        hosts = scan.get("hosts", [])
+        story.append(Paragraph("Network Scan (172.22.10.1-172.22.10.255)", self.section_style))
+        has_serial = any(h.get("serial") for h in hosts)
+        scan_table = [["IP Address", "Hostname"] + (["Serial"] if has_serial else [])]
+        for h in hosts:
+            row = [h.get("ip", ""), h.get("hostname", "")]
+            if has_serial:
+                row.append(h.get("serial", ""))
+            scan_table.append(row)
+        if len(scan_table) == 1:
+            scan_table.append(["No hosts found", "-"] + (["-"] if has_serial else []))
+        story.append(self._make_table(scan_table, col_widths=[50 * mm, None] + ([45 * mm] if has_serial else [])))
 
         # RAM section: per-module locator, size, speed
         story.append(Paragraph("Memory Modules", self.section_style))
@@ -147,18 +168,22 @@ class PDFExporter:
             ])
         story.append(self._make_table(storage_table_data))
 
-        # PCI devices: name and manufacturer
+        # PCI devices: list all, filter out standard/system devices; include Serial
         pci = data.get("pci", {})
         pci_devices = pci.get("pci_devices", [])
+        filtered_pci = self._filter_pci_devices(pci_devices)
         story.append(Paragraph("PCI Devices", self.section_style))
-        pci_table_data = [["Device Name", "Manufacturer"]]
-        for p in pci_devices[: self.max_pci_rows]:
+        pci_table_data = [["Device Name", "Manufacturer", "Serial"]]
+        for p in filtered_pci[: self.max_pci_rows]:
             pci_table_data.append([
                 p.get("device_name", "Unknown"),
                 p.get("manufacturer", "Unknown"),
+                p.get("serial_number", ""),
             ])
+        if len(pci_table_data) == 1:
+            pci_table_data.append(["None detected", "-", "-"])
         story.append(self._make_table(pci_table_data))
-        self._maybe_note_truncation(story, len(pci_devices), len(pci_table_data) - 1, "PCI devices")
+        self._maybe_note_truncation(story, len(filtered_pci), len(pci_table_data) - 1, "PCI devices")
 
         # SPIN version and CodeMeter dongles
         story.append(Paragraph("Software Highlights", self.section_style))
@@ -225,8 +250,8 @@ class PDFExporter:
         table.setStyle(style)
         return table
 
-    def _make_table(self, data: List[List[Any]]):
-        table = Table(data, hAlign="LEFT")
+    def _make_table(self, data: List[List[Any]], col_widths: Optional[List[Any]] = None):
+        table = Table(data, hAlign="LEFT", colWidths=col_widths)
         style = TableStyle([
             ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#e8eef8")),
             ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
@@ -276,5 +301,70 @@ class PDFExporter:
                 story.append(Spacer(1, 6))
         except Exception:
             pass
+
+    def _filter_pci_devices(self, devices: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        try:
+            if not devices:
+                return []
+            excluded_name_tokens = [
+                "motherboard resources",
+                "system timer",
+                "numeric data processor",
+                "programmable interrupt controller",
+                "direct memory access controller",
+                "high precision event timer",
+                "pci-to-pci bridge",
+                "pci express root port",
+                "root port",
+                "root complex",
+                "bus enumerator",
+                "composite bus enumerator",
+                "acpi",
+                "standard sata ahci controller",
+                "standard nvm express controller",
+                "standard pci-to-pci bridge",
+                "pci express downstream switch port",
+                "pci express upstream switch port",
+                "downstream switch port",
+                "upstream switch port",
+                "standard isa bridge",
+                "standard host cpu bridge",
+                # AMD generic/controller tokens from user feedback
+                "usb 3.10 extensible host controller",
+                "xhci host controller",
+                "generic usb xhci host controller",
+                "platform security processor",
+                "psp",
+                "smbus",
+                "amd-raid",
+                "raid bottom device",
+                "raid controller",
+                "amd raid",
+                "amd pci",
+            ]
+            def is_standard(d: Dict[str, Any]) -> bool:
+                name = (d.get("device_name") or "").lower()
+                friendly = (d.get("friendly_name") or "").lower()
+                manufacturer = (d.get("manufacturer") or "").lower()
+                service = (d.get("service") or "").lower()
+                combined = " ".join([name, friendly, service])
+                if "microsoft" in manufacturer and ("standard" in name or any(tok in combined for tok in excluded_name_tokens)):
+                    return True
+                if any(tok in combined for tok in excluded_name_tokens):
+                    return True
+                if name.strip() in {"pci device"}:
+                    return True
+                # Extra guard: extremely short generic AMD entries
+                if manufacturer.startswith("advanced micro devices") and name in {"amd pci", "amd psp", "amd smbus"}:
+                    return True
+                return False
+            filtered = [d for d in devices if not is_standard(d)]
+            try:
+                filtered.sort(key=lambda x: (x.get("manufacturer") or "", x.get("device_name") or ""))
+            except Exception:
+                pass
+            return filtered
+        except Exception:
+            return devices or []
 
 

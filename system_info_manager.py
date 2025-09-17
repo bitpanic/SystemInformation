@@ -16,6 +16,7 @@ from collectors.storage_collector import StorageCollector
 from collectors.os_collector import OSCollector
 from collectors.software_collector import SoftwareCollector
 from collectors.system_collector import SystemCollector
+from collectors.network_collector import NetworkCollector
 
 
 class SystemInfoManager:
@@ -35,6 +36,7 @@ class SystemInfoManager:
             "memory": MemoryCollector(),
             "storage": StorageCollector(),
             "operating_system": OSCollector(),
+            "network": NetworkCollector(),
             "software": SoftwareCollector(),
             "system": SystemCollector()
         }
@@ -216,8 +218,21 @@ class SystemInfoManager:
                     items.append((new_key, str(v)))
             return dict(items)
         
+        # Overview row with computer name
+        try:
+            comp = data.get('operating_system', {}).get('computer_info', {})
+            env = data.get('operating_system', {}).get('environment_info', {})
+            overview_row = {
+                'category': 'Overview',
+                'computer_name': comp.get('computer_name') or env.get('hostname') or 'Unknown',
+                'collection_time': data.get('collection_timestamp', ''),
+            }
+            flattened_rows.append(overview_row)
+        except Exception:
+            pass
+        
         # Create separate rows for different categories
-        categories = ['pci', 'usb', 'memory', 'storage', 'operating_system', 'software', 'system']
+        categories = ['pci', 'usb', 'memory', 'storage', 'operating_system', 'network', 'software', 'system']
         
         for category in categories:
             if category in data and isinstance(data[category], dict):
@@ -247,6 +262,18 @@ class SystemInfoManager:
                         row = {'category': 'Storage Device'}
                         row.update(flatten_dict(device))
                         flattened_rows.append(row)
+                
+                elif category == 'network' and 'network_interfaces' in category_data:
+                    for iface in category_data['network_interfaces']:
+                        row = {'category': 'Network Interface'}
+                        row.update(flatten_dict(iface))
+                        flattened_rows.append(row)
+                    # Also include scan hosts if present
+                    if 'network_scan' in category_data and 'hosts' in category_data['network_scan']:
+                        for host in category_data['network_scan']['hosts']:
+                            row = {'category': 'Network Scan Host'}
+                            row.update(flatten_dict(host))
+                            flattened_rows.append(row)
                 
                 elif category == 'system' and 'gpu_info' in category_data:
                     for gpu in category_data['gpu_info']:
@@ -302,6 +329,10 @@ class SystemInfoManager:
             os_info = self.system_info["operating_system"]["os_info"]
             summary["summary"]["os_name"] = os_info.get("name", "Unknown")
             summary["summary"]["os_version"] = os_info.get("version", "Unknown")
+        
+        # Network summary
+        if "network" in self.system_info and "network_interfaces" in self.system_info["network"]:
+            summary["summary"]["network_interface_count"] = len(self.system_info["network"]["network_interfaces"])
         
         # SPIN software summary
         if "software" in self.system_info and "spin_info" in self.system_info["software"]:
