@@ -140,16 +140,18 @@ class PDFExporter:
             scan_table.append(["No hosts found", "-"] + (["-"] if has_serial else []))
         story.append(self._make_table(scan_table, col_widths=[50 * mm, None] + ([45 * mm] if has_serial else [])))
 
-        # RAM section: per-module locator, size, speed
+        # RAM section: per-module locator, size, speed, type, form factor, part number
         story.append(Paragraph("Memory Modules", self.section_style))
         modules = memory.get("memory_modules", [])
-        ram_table_data = [["Slot", "Size (GB)", "Speed (MHz)", "Type"]]
+        ram_table_data = [["Slot", "Size (GB)", "Speed (MHz)", "Type", "Form Factor", "Part Number"]]
         for m in modules:
             ram_table_data.append([
                 m.get("device_locator", "Unknown"),
                 m.get("capacity_gb", "0"),
                 m.get("speed_mhz", "Unknown"),
                 m.get("memory_type", "Unknown"),
+                m.get("form_factor", "Unknown"),
+                m.get("part_number", "Unknown"),
             ])
         story.append(self._make_table(ram_table_data))
 
